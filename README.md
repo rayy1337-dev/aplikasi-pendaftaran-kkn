@@ -1,6 +1,6 @@
 # Aplikasi Pendaftaran KKN
 
-**Mata Kuliah:** Tugas Semester 5  
+**Mata Kuliah:** Tugas MPTI Kelompok 2
 **Kelompok:** 2  
 **Topik:** Sistem Informasi Pendaftaran Kuliah Kerja Nyata (KKN)
 
