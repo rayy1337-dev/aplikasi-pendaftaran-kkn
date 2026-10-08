@@ -25,10 +25,12 @@ Dokumentasi rencana kerja dan timeline lengkap dapat dibaca pada file [plan.md](
 
 ## Struktur Branch Git
 - `main` : Branch utama kode yang sudah stabil dan siap dipresentasikan.
-- `rayhan-pm` : Branch untuk manajemen dokumen, laporan proyek, dan skenario QA.
-- `feris-frontend` : Branch pengerjaan antarmuka dan interaktivitas React.js.
-- `ricko-backend` : Branch pengerjaan REST API, autentikasi, dan database.
-- `virdi-uiux` : Branch untuk aset desain, link prototipe Figma, dan dokumentasi flow.
+- `rayhan-pm` : Branch Project Manager (memiliki file `TUGAS.md` untuk manajemen dokumen, laporan, dan QA).
+- `feris-frontend` : Branch Frontend Developer (memiliki file `TUGAS.md` untuk panduan slicing React.js & integrasi API).
+- `ricko-backend` : Branch Backend Developer (memiliki file `TUGAS.md` untuk skema ERD, spesifikasi REST API, & upload).
+- `virdi-uiux` : Branch UI/UX Designer (memiliki file `TUGAS.md` untuk daftar halaman Figma, style guide, & aset).
+
+Setiap anggota dapat membuka file `TUGAS.md` setelah beralih ke branch masing-masing untuk melihat rincian pekerjaan dan checklist progres mingguannya.
 
 ---
 
