@@ -82,9 +82,9 @@ Sebagai Frontend Developer, Anda bertanggung jawab membangun antarmuka pengguna 
 ## Checklist Progres Mingguan
 
 ### Minggu 1: Setup Lingkungan & Arsitektur
-- [ ] Inisialisasi proyek React.js (Vite) dan konfigurasi styling.
-- [ ] Setup struktur folder, layouting dasar (Navbar & Footer), dan konfigurasi route.
-- [ ] Menerima dan mempelajari design token (warna, font) dari Virdi.
+- [x] Inisialisasi proyek React.js (Vite) dan konfigurasi styling.
+- [x] Setup struktur folder, layouting dasar (Navbar & Footer), dan konfigurasi route.
+- [x] Menerima dan mempelajari design token (warna, font) dari Virdi.
 
 ### Minggu 2: Slicing Halaman Publik & Autentikasi
 - [ ] Slicing Landing Page, informasi jadwal, dan panduan.
