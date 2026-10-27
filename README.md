@@ -23,6 +23,46 @@ Dokumentasi rencana kerja dan timeline lengkap dapat dibaca pada file [plan.md](
 
 ---
 
+## Menjalankan Backend
+
+Pastikan Node.js dan pnpm sudah terpasang, lalu jalankan dari folder proyek:
+
+```bash
+pnpm install
+pnpm dev
+```
+
+Untuk menjalankan tanpa mode pengembangan:
+
+```bash
+pnpm start
+```
+
+Server berjalan di `http://localhost:5000`. Endpoint pemeriksaan tersedia di
+`http://localhost:5000/api`. Agar koneksi database berhasil, buat file `.env`
+di folder proyek dengan konfigurasi MySQL berikut:
+
+```env
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=
+DB_NAME=pendaftaran_kkn
+DB_PORT=3306
+PORT=5000
+```
+
+Pastikan MySQL aktif dan database `pendaftaran_kkn` sudah dibuat. Server tetap
+dapat dijalankan tanpa koneksi database, tetapi fitur yang memerlukan database
+tidak akan berfungsi.
+
+Endpoint `POST /api/auth/register` menerima JSON `{"nim":"12345678","password":"password-kampus"}`.
+Role akun publik selalu `mahasiswa`, dan tabel `users` dibuat otomatis ketika
+registrasi pertama dilakukan. Jika tabel `users` sebelumnya dibuat dengan kolom
+email, server akan menambahkan kolom NIM dan membuat email opsional secara
+otomatis.
+
+---
+
 ## Struktur Branch Git
 - `main` : Branch utama kode yang sudah stabil dan siap dipresentasikan.
 - `rayhan-pm` : Branch untuk manajemen dokumen, laporan proyek, dan skenario QA.
