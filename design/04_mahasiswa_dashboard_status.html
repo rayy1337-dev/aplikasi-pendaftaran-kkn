@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Status Verifikasi Pendaftaran &amp; Pengumuman Penempatan KKN 2026 LPPM</title>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <!-- Material Symbols -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-fixed-dim": "#8bd6b6",
+            "surface-variant": "#dae2fd",
+            "surface-container-high": "#e2e7ff",
+            "secondary-fixed-dim": "#4edea3",
+            "secondary-container": "#6cf8bb",
+            "on-secondary-fixed-variant": "#005236",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary": "#ffffff",
+            "primary": "#004532",
+            "on-tertiary": "#ffffff",
+            "surface-dim": "#d2d9f4",
+            "inverse-primary": "#8bd6b6",
+            "secondary": "#006c49",
+            "tertiary-container": "#804300",
+            "surface-container": "#eaedff",
+            "surface-bright": "#faf8ff",
+            "on-tertiary-fixed": "#2f1500",
+            "tertiary-fixed": "#ffdcc3",
+            "surface": "#faf8ff",
+            "secondary-fixed": "#6ffbbe",
+            "on-primary-fixed": "#002116",
+            "on-primary": "#ffffff",
+            "on-secondary-container": "#00714d",
+            "inverse-on-surface": "#eef0ff",
+            "on-surface": "#131b2e",
+            "on-secondary-fixed": "#002113",
+            "on-primary-container": "#8bd6b7",
+            "tertiary": "#5e3000",
+            "on-error": "#ffffff",
+            "on-error-container": "#93000a",
+            "background": "#faf8ff",
+            "on-primary-fixed-variant": "#00513b",
+            "inverse-surface": "#283044",
+            "error-container": "#ffdad6",
+            "on-surface-variant": "#3f4944",
+            "surface-container-highest": "#dae2fd",
+            "primary-fixed": "#a6f2d1",
+            "outline": "#6f7973",
+            "surface-tint": "#1b6b51",
+            "on-tertiary-fixed-variant": "#6e3900",
+            "primary-container": "#065f46",
+            "surface-container-low": "#f2f3ff",
+            "on-tertiary-container": "#ffb87e",
+            "on-background": "#131b2e",
+            "outline-variant": "#bec9c2",
+            "tertiary-fixed-dim": "#ffb77d",
+            "error": "#ba1a1a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "gutter-lg": "2rem",
+            "space-xl": "2.5rem",
+            "space-md": "1rem",
+            "margin-sm": "1rem",
+            "margin-lg": "3rem",
+            "gutter": "1.5rem",
+            "space-lg": "1.5rem",
+            "gutter-sm": "1rem",
+            "margin": "1.5rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Space Grotesk"],
+            "headline-sm": ["Space Grotesk"],
+            "label-md": ["Plus Jakarta Sans"],
+            "display-hero": ["Space Grotesk"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-xl": ["Space Grotesk"],
+            "body-xl": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Space Grotesk"],
+            "headline-xl-mobile": ["Space Grotesk"],
+            "label-badge": ["Space Grotesk"],
+            "headline-md": ["Space Grotesk"],
+            "body-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "display-hero-mobile": ["36px", { "lineHeight": "42px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "display-hero": ["52px", { "lineHeight": "60px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-xl": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-badge": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+
+<body
+  class="bg-background text-on-surface min-h-screen flex flex-col font-body-md antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+  <!-- Top App Bar / Navigation Header -->
+  <header class="bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-50 shadow-sm">
+    <div class="w-full max-w-[1280px] mx-auto px-6 md:px-12 flex justify-between items-center h-20">
+      <!-- Brand & Academic Session Emblem -->
+      <div class="flex items-center gap-4">
+        <div
+          class="w-11 h-11 rounded-lg bg-primary flex items-center justify-center text-on-primary shadow-sm ring-2 ring-primary/20">
+          <span class="material-symbols-outlined text-[26px]" style="font-variation-settings: 'FILL' 1;">school</span>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-2.5">
+            <span class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight">SIM KKN
+              Mahasiswa</span>
+            <span
+              class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-badge text-label-badge tracking-wider border border-secondary-container">
+              Periode Gasal 2026/2027
+            </span>
+          </div>
+          <span class="font-body-sm text-body-sm text-on-surface-variant font-medium">
+            Lembaga Penelitian dan Pengabdian kepada Masyarakat (LPPM)
+          </span>
+        </div>
+      </div>
+      <!-- Right Action Cluster: Student Profile & Navigation Control -->
+      <div class="flex items-center gap-4">
+        <!-- Notification Indicator -->
+        <button aria-label="Notifikasi Portal"
+          class="relative p-2.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-primary">
+          <span class="material-symbols-outlined text-[22px]">notifications</span>
+          <span
+            class="absolute top-2 right-2 w-2.5 h-2.5 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span>
+        </button>
+        <div class="h-8 w-px bg-outline-variant"></div>
+        <!-- Student Profile Pill -->
+        <div
+          class="flex items-center gap-3 pl-1 pr-3 py-1.5 rounded-full bg-surface-container-low border border-outline-variant/60 shadow-xs">
+          <div
+            class="w-9 h-9 rounded-full bg-primary-container text-on-primary font-headline-sm text-label-lg font-bold flex items-center justify-center ring-2 ring-primary-fixed">
+            VS
+          </div>
+          <div class="flex flex-col text-left">
+            <div class="flex items-center gap-1.5">
+              <span class="font-label-lg text-label-lg text-on-surface font-semibold leading-tight">Virdi Santoso</span>
+              <span class="material-symbols-outlined text-[15px] text-secondary"
+                style="font-variation-settings: 'FILL' 1;">verified</span>
+            </div>
+            <span class="font-body-sm text-body-sm text-on-surface-variant leading-tight">2108521045 • Teknik
+              Informatika (S1)</span>
+          </div>
+        </div>
+        <!-- Return to Home CTA -->
+        <button
+          class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-lg text-label-lg transition-colors duration-150 border border-outline-variant active:scale-[0.98]">
+          <span class="material-symbols-outlined text-[18px]">keyboard_backspace</span>
+          <span>Kembali ke Beranda</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <!-- Page Content Container -->
+  <main class="w-full max-w-[1280px] mx-auto px-6 md:px-12 py-8 flex-1 space-y-8">
+    <!-- Top Celebratory & Legal Verification Banner -->
+    <section
+      class="relative overflow-hidden rounded-xl border border-outline-variant bg-gradient-to-r from-surface-container-low via-surface-container-lowest to-surface-container p-6 md:p-8 shadow-sm">
+      <div class="absolute -right-8 -top-8 w-56 h-56 rounded-full bg-primary-fixed/20 blur-3xl pointer-events-none">
+      </div>
+      <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+        <div class="space-y-3">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-xs">
+              <span class="material-symbols-outlined text-[24px]"
+                style="font-variation-settings: 'FILL' 1;">verified_user</span>
+            </div>
+            <div
+              class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-secondary font-label-badge text-label-badge border border-outline-variant">
+              <span class="w-2 h-2 rounded-full bg-secondary"></span>
+              STATUS PENETAPAN: DEFINITIF VALID
+            </div>
+          </div>
+          <div>
+            <h1 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">
+              Selamat! Pendaftaran KKN Anda Diterima &amp; Terverifikasi Resmi
+            </h1>
+            <p class="font-body-md text-body-md text-on-surface-variant mt-1">
+              Nomor SK Penetapan LPPM: <span class="font-semibold text-on-surface">418/UNIV/LPPM/KKN/2026</span> •
+              Ditetapkan pada 28 April 2026
+            </p>
+          </div>
+          <!-- Step Progression Badges -->
+          <div class="pt-2 flex flex-wrap items-center gap-2.5">
+            <div
+              class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-lowest border border-outline-variant shadow-xs">
+              <span class="material-symbols-outlined text-[16px] text-secondary"
+                style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              <span class="font-label-md text-label-md text-on-surface">Pendaftaran: Selesai (15 Apr)</span>
+            </div>
+            <span class="material-symbols-outlined text-outline-variant text-[16px]">chevron_right</span>
+            <div
+              class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-secondary-fixed/30 border border-secondary text-primary font-medium shadow-xs">
+              <span class="material-symbols-outlined text-[16px] text-secondary"
+                style="font-variation-settings: 'FILL' 1;">task_alt</span>
+              <span class="font-label-md text-label-md font-bold text-primary">Verifikasi Berkas: Lolos ✓</span>
+              <span class="text-body-sm text-on-surface-variant font-normal hidden sm:inline">(Semua berkas valid &amp;
+                memenuhi syarat 112 SKS)</span>
+            </div>
+            <span class="material-symbols-outlined text-outline-variant text-[16px]">chevron_right</span>
+            <div
+              class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-lowest border border-outline-variant shadow-xs">
+              <span class="material-symbols-outlined text-[16px] text-primary"
+                style="font-variation-settings: 'FILL' 1;">location_on</span>
+              <span class="font-label-md text-label-md text-on-surface">Penempatan: Ditetapkan (Kelompok 12 - Desa
+                Cibodas)</span>
+            </div>
+          </div>
+        </div>
+        <!-- Download Decree Actions -->
+        <div class="flex flex-col sm:flex-row lg:flex-col gap-3 min-w-[280px]">
+          <button
+            class="flex items-center justify-center gap-2.5 px-5 py-3 rounded-lg bg-primary-container hover:bg-secondary text-on-primary font-label-lg text-label-lg transition-colors duration-150 shadow-sm active:scale-[0.98]">
+            <span class="material-symbols-outlined text-[20px]">download</span>
+            <span>Unduh Surat Tugas &amp; Bukti Pendaftaran (PDF)</span>
+          </button>
+          <button
+            class="flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-primary font-label-lg text-label-lg border border-outline-variant transition-colors duration-150 active:scale-[0.98]">
+            <span class="material-symbols-outlined text-[18px]">description</span>
+            <span>Unduh Pakta Integritas Mahasiswa</span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- Main Content Bento Grid (60% Left / 40% Right) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <!-- LEFT COLUMN: Informasi Penempatan Kelompok & Desa Pengabdian (7 cols ~ 58-60%) -->
+      <section class="lg:col-span-7 space-y-8">
+        <!-- Card 1: Lokasi & Mitra Pengabdian Card -->
+        <div
+          class="bg-surface-container-lowest rounded-xl border border-outline-variant p-6 md:p-7 shadow-sm space-y-6">
+          <div class="flex items-start justify-between border-b border-outline-variant pb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+                <span class="material-symbols-outlined text-[22px]">share_location</span>
+              </div>
+              <div>
+                <h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Lokasi &amp; Mitra Pengabdian
+                </h2>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">Detail penugasan wilayah dan dosen
+                  pembimbing lapangan</p>
+              </div>
+            </div>
+            <span
+              class="px-3 py-1 rounded-full bg-secondary-fixed/40 text-on-secondary-fixed font-label-badge text-label-badge border border-secondary-container">
+              Penempatan Definitif
+            </span>
+          </div>
+          <!-- Rich Specification Rows -->
+          <div class="space-y-4">
+            <!-- Row: Nama Lokasi -->
+            <div
+              class="p-4 rounded-lg bg-surface-container-low border border-outline-variant/60 flex items-start gap-3.5">
+              <span class="material-symbols-outlined text-primary text-[22px] mt-0.5">location_city</span>
+              <div class="flex-1">
+                <span class="font-label-md text-label-md text-on-surface-variant block">Wilayah Administratif KKN</span>
+                <span class="font-headline-sm text-headline-sm font-bold text-on-surface">
+                  Desa Cibodas, Kecamatan Lembang, Kab. Bandung Barat
+                </span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant block mt-0.5">Provinsi Jawa Barat • Kode
+                  Pos 40391</span>
+              </div>
+            </div>
+            <!-- Row: Tema Program Kerja -->
+            <div
+              class="p-4 rounded-lg bg-surface-container-lowest border border-outline-variant flex items-start gap-3.5">
+              <span class="material-symbols-outlined text-secondary text-[22px] mt-0.5">compost</span>
+              <div>
+                <span class="font-label-md text-label-md text-on-surface-variant block">Tema Prioritas Rencana Program
+                  Kerja</span>
+                <span class="font-label-lg text-label-lg text-primary font-bold">
+                  Ekowisata Berkelanjutan &amp; Akselerasi Digitalisasi UMKM Pertanian
+                </span>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                  Fokus pada sistem inventarisasi rantai pasok agribisnis lokal dan platform reservasi wisata edukasi
+                  masyarakat Cibodas.
+                </p>
+              </div>
+            </div>
+            <!-- Row: Dosen Pembimbing Lapangan (DPL) -->
+            <div
+              class="p-4 rounded-lg bg-surface-container-low border border-outline-variant/60 flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-12 h-12 rounded-full bg-surface-container border border-outline-variant flex items-center justify-center text-primary font-bold">
+                  <span class="material-symbols-outlined text-[26px]">badge</span>
+                </div>
+                <div>
+                  <span class="font-label-md text-label-md text-on-surface-variant block">Dosen Pembimbing Lapangan
+                    (DPL)</span>
+                  <span class="font-label-lg text-label-lg font-bold text-on-surface">Dr. Ir. Hendra Gunawan,
+                    M.T.</span>
+                  <span class="font-body-sm text-body-sm text-on-surface-variant block">NIP 197805122005011002 •
+                    Fakultas Teknik Industri</span>
+                </div>
+              </div>
+              <!-- Quick Contact Buttons -->
+              <div class="flex items-center gap-2">
+                <a class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-secondary text-on-secondary font-label-md text-label-md hover:bg-primary transition-colors shadow-xs"
+                  href="https://wa.me/6281234567890" rel="noopener noreferrer" target="_blank">
+                  <span class="material-symbols-outlined text-[16px]">chat</span>
+                  <span>Hubungi WhatsApp</span>
+                </a>
+                <a class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface border border-outline-variant font-label-md text-label-md hover:bg-surface-container transition-colors"
+                  href="tel:+6281234567890">
+                  <span class="material-symbols-outlined text-[16px]">call</span>
+                  <span>Hubungi Telepon</span>
+                </a>
+              </div>
+            </div>
+            <!-- Grid 2-cols: Posko Utama & Periode Pelaksanaan -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="p-3.5 rounded-lg bg-surface-container-lowest border border-outline-variant">
+                <div class="flex items-center gap-2 text-on-surface-variant mb-1">
+                  <span class="material-symbols-outlined text-[18px]">home_work</span>
+                  <span class="font-label-md text-label-md">Posko Utama KKN</span>
+                </div>
+                <p class="font-body-md text-body-md font-semibold text-on-surface">
+                  Balai Desa Cibodas, Jl. Maribaya No. 45
+                </p>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Kordinat: -6.8291, 107.6543</span>
+              </div>
+              <div class="p-3.5 rounded-lg bg-surface-container-lowest border border-outline-variant">
+                <div class="flex items-center gap-2 text-on-surface-variant mb-1">
+                  <span class="material-symbols-outlined text-[18px]">date_range</span>
+                  <span class="font-label-md text-label-md">Periode Pelaksanaan</span>
+                </div>
+                <p class="font-body-md text-body-md font-semibold text-on-surface">
+                  1 Juni - 15 Juli 2026
+                </p>
+                <span class="font-body-sm text-body-sm text-secondary font-medium">45 Hari Kalender Penuh (6 SKS)</span>
+              </div>
+            </div>
+            <!-- Facilities Badges -->
+            <div class="pt-2 flex flex-wrap items-center gap-2">
+              <span class="font-label-md text-label-md text-on-surface-variant mr-1">Fasilitas Terdata:</span>
+              <span
+                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-badge text-label-badge border border-outline-variant">
+                <span class="material-symbols-outlined text-[14px] text-secondary">wifi</span>
+                Akses Internet Baik
+              </span>
+              <span
+                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-badge text-label-badge border border-outline-variant">
+                <span class="material-symbols-outlined text-[14px] text-secondary">domain</span>
+                Posko Tersedia
+              </span>
+              <span
+                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-badge text-label-badge border border-outline-variant">
+                <span class="material-symbols-outlined text-[14px] text-secondary">handshake</span>
+                Kemitraan Aktif Pemda
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- Card 2: Roster Tim Mahasiswa - Kelompok 12 -->
+        <div
+          class="bg-surface-container-lowest rounded-xl border border-outline-variant p-6 md:p-7 shadow-sm space-y-6">
+          <div
+            class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-outline-variant pb-4">
+            <div>
+              <div class="flex items-center gap-2.5">
+                <h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Roster Tim Mahasiswa - Kelompok
+                  12</h2>
+                <span
+                  class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-badge text-label-badge">
+                  5 Mahasiswa Terdaftar
+                </span>
+              </div>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Komposisi interdisipliner lintas
+                fakultas tahun akademik 2025/2026</p>
+            </div>
+            <!-- Join WA Group Button -->
+            <a class="inline-flex items-center justify-center gap-2 px-3.5 py-2 rounded-lg bg-[#25D366] text-white hover:bg-[#1EBE5D] font-label-lg text-label-lg transition-colors shadow-xs"
+              href="https://chat.whatsapp.com/demo-kkn12" rel="noopener noreferrer" target="_blank">
+              <span class="material-symbols-outlined text-[18px]">group</span>
+              <span>Gabung WhatsApp Grup Kelompok 12</span>
+            </a>
+          </div>
+          <!-- Roster Members List -->
+          <div class="space-y-3">
+            <!-- Member 1 (Ketua / Logged-in User) -->
+            <div
+              class="p-3.5 rounded-lg bg-surface-container-low border-2 border-primary/40 flex items-center justify-between">
+              <div class="flex items-center gap-3.5">
+                <div
+                  class="w-10 h-10 rounded-full bg-primary-container text-on-primary font-bold flex items-center justify-center font-headline-sm text-label-lg">
+                  VS
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="font-label-lg text-label-lg font-bold text-on-surface">Virdi Santoso</span>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant">(Anda)</span>
+                    <span class="px-2 py-0.5 rounded bg-primary text-on-primary font-label-badge text-label-badge">
+                      Ketua Kelompok
+                    </span>
+                  </div>
+                  <span class="font-body-sm text-body-sm text-on-surface-variant">NIM 2108521045 • Teknik Informatika
+                    (S1)</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="inline-flex items-center gap-1 text-secondary font-label-md text-label-md">
+                  <span class="material-symbols-outlined text-[16px]"
+                    style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                  <span>Terverifikasi</span>
+                </span>
+              </div>
+            </div>
+            <!-- Member 2 -->
+            <div
+              class="p-3.5 rounded-lg bg-surface-container-lowest border border-outline-variant flex items-center justify-between">
+              <div class="flex items-center gap-3.5">
+                <div
+                  class="w-10 h-10 rounded-full bg-surface-container text-primary font-bold flex items-center justify-center font-headline-sm text-label-lg">
+                  SR
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="font-label-lg text-label-lg font-semibold text-on-surface">Siti Rahmawati</span>
+                    <span
+                      class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-badge text-label-badge">
+                      Sekretaris
+                    </span>
+                  </div>
+                  <span class="font-body-sm text-body-sm text-on-surface-variant">NIM 2106341012 • Farmasi (S1)</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="inline-flex items-center gap-1 text-secondary font-label-md text-label-md">
+                  <span class="material-symbols-outlined text-[16px]"
+                    style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                  <span>Terverifikasi</span>
+                </span>
+              </div>
+            </div>
+            <!-- Member 3 -->
+            <div
+              class="p-3.5 rounded-lg bg-surface-container-lowest border border-outline-variant flex items-center justify-between">
+              <div class="flex items-center gap-3.5">
+                <div
+                  class="w-10 h-10 rounded-full bg-surface-container text-primary font-bold flex items-center justify-center font-headline-sm text-label-lg">
+                  BP
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="font-label-lg text-label-lg font-semibold text-on-surface">Budi Pratama</span>
+                    <span
+                      class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-badge text-label-badge">
+                      Bendahara
+                    </span>
+                  </div>
+                  <span class="font-body-sm text-body-sm text-on-surface-variant">NIM 2102111088 • Ekonomi &amp; Bisnis
+                    (S1)</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="inline-flex items-center gap-1 text-secondary font-label-md text-label-md">
+                  <span class="material-symbols-outlined text-[16px]"
+                    style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                  <span>Terverifikasi</span>
+                </span>
+              </div>
+            </div>
+            <!-- Member 4 -->
+            <div
+              class="p-3.5 rounded-lg bg-surface-container-lowest border border-outline-variant flex items-center justify-between">
+              <div class="flex items-center gap-3.5">
+                <div
+                  class="w-10 h-10 rounded-full bg-surface-container text-primary font-bold flex items-center justify-center font-headline-sm text-label-lg">
+                  AP
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="font-label-lg text-label-lg font-semibold text-on-surface">Annisa Putri</span>
+                    <span
+                      class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface font-label-badge text-label-badge border border-outline-variant">
+                      Divisi Program Kesehatan
+                    </span>
+                  </div>
+                  <span class="font-body-sm text-body-sm text-on-surface-variant">NIM 2105121034 • Ilmu Gizi (S1)</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="inline-flex items-center gap-1 text-secondary font-label-md text-label-md">
+                  <span class="material-symbols-outlined text-[16px]"
+                    style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                  <span>Terverifikasi</span>
+                </span>
+              </div>
+            </div>
+            <!-- Member 5 -->
+            <div
+              class="p-3.5 rounded-lg bg-surface-container-lowest border border-outline-variant flex items-center justify-between">
+              <div class="flex items-center gap-3.5">
+                <div
+                  class="w-10 h-10 rounded-full bg-surface-container text-primary font-bold flex items-center justify-center font-headline-sm text-label-lg">
+                  DA
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="font-label-lg text-label-lg font-semibold text-on-surface">Dimas Anggara</span>
+                    <span
+                      class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface font-label-badge text-label-badge border border-outline-variant">
+                      Divisi Pemberdayaan Tani
+                    </span>
+                  </div>
+                  <span class="font-body-sm text-body-sm text-on-surface-variant">NIM 2104191062 • Agroteknologi
+                    (S1)</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="inline-flex items-center gap-1 text-secondary font-label-md text-label-md">
+                  <span class="material-symbols-outlined text-[16px]"
+                    style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                  <span>Terverifikasi</span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="p-3 rounded-lg bg-surface-container-low flex items-center justify-between text-body-sm text-on-surface-variant">
+            <span>Pergantian peran struktural kelompok dapat dikonfirmasikan saat Pembekalan Mandiri DPL.</span>
+            <span class="font-semibold text-primary">SOP-KKN-2026 Rev 2.1</span>
+          </div>
+        </div>
+      </section>
+      <!-- RIGHT COLUMN: Status Berkas, Agenda Pembekalan, & Helpdesk (5 cols ~ 40%) -->
+      <section class="lg:col-span-5 space-y-8">
+        <!-- Card 1: Status Berkas Terverifikasi (4/4 Lolos) -->
+        <div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-6 shadow-sm space-y-5">
+          <div class="flex items-center justify-between border-b border-outline-variant pb-4">
+            <div>
+              <h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Status Kelengkapan Berkas</h2>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Validasi komprehensif LPPM &amp; BAAK</p>
+            </div>
+            <div
+              class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed/40 text-on-secondary-fixed font-bold font-label-badge text-label-badge">
+              <span class="material-symbols-outlined text-[15px]"
+                style="font-variation-settings: 'FILL' 1;">task_alt</span>
+              <span>4 / 4 Lolos</span>
+            </div>
+          </div>
+          <!-- Document List Items -->
+          <div class="space-y-3">
+            <div
+              class="p-3 rounded-lg bg-surface-container-lowest border border-outline-variant flex items-start gap-3">
+              <span class="material-symbols-outlined text-secondary text-[20px] mt-0.5"
+                style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              <div class="flex-1">
+                <span class="font-label-lg text-label-lg font-semibold text-on-surface block">Kartu Tanda Mahasiswa (KTM
+                  Siakad)</span>
+                <span class="font-label-md text-label-md text-secondary font-medium">Terverifikasi LPPM ✓</span>
+              </div>
+              <button class="text-on-surface-variant hover:text-primary p-1" title="Pratinjau Berkas">
+                <span class="material-symbols-outlined text-[18px]">visibility</span>
+              </button>
+            </div>
+            <div
+              class="p-3 rounded-lg bg-surface-container-lowest border border-outline-variant flex items-start gap-3">
+              <span class="material-symbols-outlined text-secondary text-[20px] mt-0.5"
+                style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              <div class="flex-1">
+                <span class="font-label-lg text-label-lg font-semibold text-on-surface block">Transkrip KHS Resmi (112
+                  SKS Lulus)</span>
+                <span class="font-label-md text-label-md text-secondary font-medium">Memenuhi Syarat Min. 100 SKS
+                  ✓</span>
+              </div>
+              <button class="text-on-surface-variant hover:text-primary p-1" title="Pratinjau Berkas">
+                <span class="material-symbols-outlined text-[18px]">visibility</span>
+              </button>
+            </div>
+            <div
+              class="p-3 rounded-lg bg-surface-container-lowest border border-outline-variant flex items-start gap-3">
+              <span class="material-symbols-outlined text-secondary text-[20px] mt-0.5"
+                style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              <div class="flex-1">
+                <span class="font-label-lg text-label-lg font-semibold text-on-surface block">Surat Keterangan Sehat
+                  (Puskesmas/RS)</span>
+                <span class="font-label-md text-label-md text-secondary font-medium">Valid &amp; Bebas Kontraindikasi
+                  ✓</span>
+              </div>
+              <button class="text-on-surface-variant hover:text-primary p-1" title="Pratinjau Berkas">
+                <span class="material-symbols-outlined text-[18px]">visibility</span>
+              </button>
+            </div>
+            <div
+              class="p-3 rounded-lg bg-surface-container-lowest border border-outline-variant flex items-start gap-3">
+              <span class="material-symbols-outlined text-secondary text-[20px] mt-0.5"
+                style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              <div class="flex-1">
+                <span class="font-label-lg text-label-lg font-semibold text-on-surface block">Surat Persetujuan Orang
+                  Tua / Wali</span>
+                <span class="font-label-md text-label-md text-secondary font-medium">Lengkap &amp; Ditandatangani
+                  Bermaterai ✓</span>
+              </div>
+              <button class="text-on-surface-variant hover:text-primary p-1" title="Pratinjau Berkas">
+                <span class="material-symbols-outlined text-[18px]">visibility</span>
+              </button>
+            </div>
+          </div>
+          <div class="pt-2 text-right">
+            <a class="inline-flex items-center gap-1 font-label-md text-label-md font-bold text-primary hover:underline"
+              href="#arsip">
+              <span>Lihat Arsip Berkas Digital</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+        <!-- Card 2: Agenda & Jadwal Pembekalan KKN (Timeline Card) -->
+        <div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-6 shadow-sm space-y-6">
+          <div class="flex items-center justify-between border-b border-outline-variant pb-4">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-lg bg-surface-container text-primary flex items-center justify-center">
+                <span class="material-symbols-outlined text-[20px]">calendar_month</span>
+              </div>
+              <h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Agenda Pembekalan KKN</h2>
+            </div>
+            <span class="font-label-badge text-label-badge text-on-surface-variant">WITA &amp; WIB Sinkron</span>
+          </div>
+          <!-- Timeline Track -->
+          <div
+            class="relative pl-6 space-y-6 before:content-[''] before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-outline-variant">
+            <!-- Milestone 1 -->
+            <div class="relative">
+              <div
+                class="absolute -left-[23px] top-1 w-5 h-5 rounded-full bg-secondary-container border-2 border-secondary flex items-center justify-center">
+                <span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+              </div>
+              <div class="bg-surface-container-low p-3.5 rounded-lg border border-outline-variant/80">
+                <div class="flex items-center justify-between">
+                  <span class="font-label-lg text-label-lg font-bold text-on-surface">Pembekalan Terpusat Gelombang
+                    1</span>
+                  <span
+                    class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-badge text-label-badge">
+                    Wajib Hadir
+                  </span>
+                </div>
+                <div class="mt-2 space-y-1 text-body-sm text-on-surface-variant">
+                  <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[16px]">schedule</span>
+                    <span>05 Mei 2026, 08.00 - 15.00 WIB</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[16px]">pin_drop</span>
+                    <span>Auditorium Utama LPPM Kampus Pusat</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Milestone 2 -->
+            <div class="relative">
+              <div
+                class="absolute -left-[23px] top-1 w-5 h-5 rounded-full bg-surface-container-lowest border-2 border-outline flex items-center justify-center">
+                <span class="w-2 h-2 rounded-full bg-outline"></span>
+              </div>
+              <div class="p-3.5 rounded-lg border border-outline-variant bg-surface-container-lowest">
+                <div class="flex items-center justify-between">
+                  <span class="font-label-lg text-label-lg font-bold text-on-surface">Lokakarya Rencana Kerja
+                    Desa</span>
+                  <span
+                    class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-badge text-label-badge">
+                    Diskusi Program DPL
+                  </span>
+                </div>
+                <div class="mt-2 space-y-1 text-body-sm text-on-surface-variant">
+                  <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[16px]">schedule</span>
+                    <span>08 Mei 2026, 09.00 - 12.00 WIB</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[16px]">meeting_room</span>
+                    <span>Ruang Seminar Rektorat Lt. 3</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Milestone 3 -->
+            <div class="relative">
+              <div
+                class="absolute -left-[23px] top-1 w-5 h-5 rounded-full bg-surface-container-lowest border-2 border-outline flex items-center justify-center">
+                <span class="w-2 h-2 rounded-full bg-outline"></span>
+              </div>
+              <div class="p-3.5 rounded-lg border border-outline-variant bg-surface-container-lowest">
+                <div class="flex items-center justify-between">
+                  <span class="font-label-lg text-label-lg font-bold text-on-surface">Pelepasan Resmi Mahasiswa
+                    KKN</span>
+                  <span
+                    class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-badge text-label-badge">
+                    Seremoni &amp; Keberangkatan
+                  </span>
+                </div>
+                <div class="mt-2 space-y-1 text-body-sm text-on-surface-variant">
+                  <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[16px]">schedule</span>
+                    <span>01 Juni 2026, 07.30 WIB</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[16px]">flag</span>
+                    <span>Lapangan Upacara Kampus Pusat</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Card 3: Bantuan & Helpdesk LPPM -->
+        <div class="bg-surface-container rounded-xl border border-outline-variant p-6 shadow-sm space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center">
+              <span class="material-symbols-outlined text-[20px]">support_agent</span>
+            </div>
+            <div>
+              <h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Butuh Penyesuaian atau Kendala?
+              </h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">Layanan Helpdesk Pusat LPPM Bidang KKN</p>
+            </div>
+          </div>
+          <p class="font-body-sm text-body-sm text-on-surface-variant">
+            Jika terdapat ketidaksesuaian data domisili khusus kesehatan atau pertanyaan terkait koordinasi lintas
+            fakultas:
+          </p>
+          <div class="space-y-2 pt-1">
+            <a class="flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest border border-outline-variant hover:border-secondary transition-colors group"
+              href="https://wa.me/6281123456789" rel="noopener noreferrer" target="_blank">
+              <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-secondary text-[20px]">chat</span>
+                <span
+                  class="font-label-md text-label-md text-on-surface font-semibold group-hover:text-primary">WhatsApp
+                  LPPM Helpdesk</span>
+              </div>
+              <span class="font-body-sm text-body-sm text-on-surface-variant font-mono">+62 811-2345-6789</span>
+            </a>
+            <a class="flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest border border-outline-variant hover:border-secondary transition-colors group"
+              href="mailto:lppm-kkn@universitas.ac.id">
+              <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-secondary text-[20px]">mail</span>
+                <span class="font-label-md text-label-md text-on-surface font-semibold group-hover:text-primary">Surel
+                  Resmi Panitia</span>
+              </div>
+              <span
+                class="font-body-sm text-body-sm text-on-surface-variant font-mono">lppm-kkn@universitas.ac.id</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <!-- Footer Component Consistent with Portal Standards -->
+  <footer class="bg-surface-container-high border-t border-outline-variant mt-16 w-full">
+    <div class="w-full max-w-[1280px] mx-auto px-6 md:px-12 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-8 border-b border-outline-variant/60">
+        <div class="md:col-span-5 space-y-3">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded bg-primary flex items-center justify-center text-on-primary">
+              <span class="material-symbols-outlined text-[20px]">account_balance</span>
+            </div>
+            <span class="font-headline-sm text-headline-sm font-bold text-primary">KKN Portal LPPM</span>
+          </div>
+          <p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">
+            Portal resmi tata kelola Kuliah Kerja Nyata terpadu, menjunjung integritas, pengabdian masyarakat bernilai
+            dampak, dan keunggulan akademik berkelanjutan.
+          </p>
+        </div>
+        <div class="md:col-span-7 flex flex-wrap justify-between gap-6">
+          <div class="space-y-2">
+            <span class="font-label-lg text-label-lg text-on-surface font-bold block">Pedoman &amp; Dokumen</span>
+            <ul class="space-y-1.5 font-body-sm text-body-sm text-on-surface-variant">
+              <li><a class="hover:text-primary transition-colors" href="#panduan">Panduan Operasional KKN</a></li>
+              <li><a class="hover:text-primary transition-colors" href="#pedoman">Pedoman DPL &amp; Mahasiswa</a></li>
+              <li><a class="hover:text-primary transition-colors" href="#sso">Sistem SSO Kampus</a></li>
+            </ul>
+          </div>
+          <div class="space-y-2">
+            <span class="font-label-lg text-label-lg text-on-surface font-bold block">Pusat Informasi</span>
+            <ul class="space-y-1.5 font-body-sm text-body-sm text-on-surface-variant">
+              <li><a class="hover:text-primary transition-colors" href="#helpdesk">Pusat Bantuan Teknis</a></li>
+              <li><a class="hover:text-primary transition-colors" href="#kontak">Kontak LPPM</a></li>
+              <li><a class="hover:text-primary transition-colors" href="#privasi">Kebijakan Privasi Data</a></li>
+            </ul>
+          </div>
+          <div class="space-y-2">
+            <span class="font-label-lg text-label-lg text-on-surface font-bold block">Jam Kerja Operasional</span>
+            <div class="font-body-sm text-body-sm text-on-surface-variant">
+              <p>Senin - Jumat: 08.00 - 16.00 WIB</p>
+              <p>Gedung Rektorat Lt. 2, Sayap Barat</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-body-sm text-on-surface-variant">
+        <p>© 2025 Lembaga Penelitian dan Pengabdian kepada Masyarakat (LPPM). Hak Cipta Dilindungi Undang-Undang.</p>
+        <div class="flex items-center gap-4">
+          <span class="inline-flex items-center gap-1.5 text-secondary font-label-md text-label-md">
+            <span class="w-2 h-2 rounded-full bg-secondary"></span>
+            Server SIM-KKN Aktif v2.4.9
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

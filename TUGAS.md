@@ -72,22 +72,22 @@ Buat komponen standar yang konsisten di Figma sebelum mendesain halaman lengkap:
 ## Checklist Progres Mingguan
 
 ### Minggu 1: Riset, Alur, & Design System
-- [ ] Menyusun User Flow pendaftaran mahasiswa dan alur kerja admin.
-- [ ] Membuat Wireframe Lo-Fi seluruh halaman utama di Figma.
-- [ ] Menentukan Style Guide (warna, font, komponen dasar) dan membagikannya ke Feris & Rayhan.
+- [x] Menyusun User Flow pendaftaran mahasiswa dan alur kerja admin (Terdokumentasi di [design/README.md](design/README.md)).
+- [x] Membuat Wireframe & Prototype antarmuka seluruh halaman utama via Stitch MCP.
+- [x] Menentukan Style Guide & Design System (warna, font, komponen dasar) dan membagikannya ke Feris & Rayhan.
 
 ### Minggu 2: Desain Hi-Fi Halaman Publik & Autentikasi
-- [ ] Menyelesaikan desain Hi-Fi Landing Page (Hero, Jadwal, Panduan, Footer).
-- [ ] Menyelesaikan desain Hi-Fi Halaman Login dan Registrasi.
-- [ ] Memulai desain wizard form pendaftaran multi-step.
+- [x] Menyelesaikan desain Hi-Fi Landing Page ([design/01_landing_page.html](design/01_landing_page.html)).
+- [x] Menyelesaikan desain Hi-Fi Halaman Login dan Registrasi ([design/05_autentikasi_login_register.html](design/05_autentikasi_login_register.html)).
+- [x] Menyelesaikan desain wizard form pendaftaran multi-step ([design/02_pendaftaran_wizard.html](design/02_pendaftaran_wizard.html)).
 
 ### Minggu 3: Desain Hi-Fi Pendaftaran & Dashboard Admin
-- [ ] Menyelesaikan desain kartu pemilihan lokasi KKN dan visualisasi kuota.
-- [ ] Menyelesaikan antarmuka upload berkas dan preview bukti pendaftaran.
-- [ ] Menyelesaikan desain Dashboard Admin (tabel verifikasi, modal review berkas).
-- [ ] Handoff seluruh aset visual dan icon ke Feris (Frontend).
+- [x] Menyelesaikan desain kartu pemilihan lokasi KKN dan visualisasi kuota.
+- [x] Menyelesaikan antarmuka upload berkas dan preview bukti pendaftaran.
+- [x] Menyelesaikan desain Dashboard Admin dengan tabel verifikasi & split drawer ([design/03_admin_dashboard_verifikasi.html](design/03_admin_dashboard_verifikasi.html)).
+- [x] Handoff seluruh aset visual, tokens warna, dan arsitektur komponen ke Feris (Frontend).
 
 ### Minggu 4: Prototyping Interaktif & Dokumentasi Laporan
-- [ ] Membuat prototipe interaktif di Figma untuk demonstrasi alur klik.
-- [ ] Menyediakan tangkapan layar (screenshot) desain Hi-Fi dengan resolusi tinggi untuk dimasukkan ke Bab 2 Laporan Proyek oleh Rayhan.
-- [ ] Mendukung tim saat persiapan materi slide presentasi.
+- [x] Menyediakan prototipe interaktif (HTML/Tailwind) di folder [design/](design/).
+- [x] Menyediakan tangkapan layar (screenshot) desain Hi-Fi resolusi tinggi di [design/screenshots/](design/screenshots/) untuk Bab 2 Laporan Proyek oleh Rayhan.
+- [ ] Mendukung tim saat persiapan materi slide presentasi akhir.
