@@ -93,11 +93,11 @@ Perintah ini akan otomatis:
 ### Langkah 4: Menjalankan Server Backend & Frontend
 Buka dua terminal terpisah:
 
-**Terminal 1 (Backend - Port 5000):**
+**Terminal 1 (Backend - Port 5001):**
 ```bash
 npm run dev:backend
 ```
-Server backend berjalan di: `http://localhost:5000/api`
+Server backend berjalan di: `http://localhost:5001/api`
 
 **Terminal 2 (Frontend - Port 5173):**
 ```bash

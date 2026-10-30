@@ -12,9 +12,12 @@ const configuredOrigins = process.env.CORS_ORIGINS
 
 app.use(cors({
     origin(origin, callback) {
-        if (!origin || configuredOrigins.includes(origin)) return callback(null, true);
+        if (!origin || configuredOrigins.includes(origin) || /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) {
+            return callback(null, true);
+        }
         return callback(new Error(`Origin ${origin} tidak diizinkan oleh konfigurasi CORS.`));
-    }
+    },
+    credentials: true
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -34,7 +37,7 @@ app.use('/api/announcements', require('./routes/announcementRoutes'));
 app.get('/api', (req, res) => {
     res.json({
         status: 'Sukses',
-        message: '🚀 API Pendaftaran KKN ITB Widya Gama siap digunakan!'
+        message: '🚀 API Pendaftaran KKN siap digunakan!'
     });
 });
 
@@ -67,7 +70,7 @@ app.use((error, req, res, next) => {
     });
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
     console.log(`\n=========================================`);
     console.log(`🚀 Server berjalan di http://localhost:${PORT}`);

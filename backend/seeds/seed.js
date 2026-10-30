@@ -83,3 +83,4 @@ seed().catch((err) => {
     console.error('❌ Gagal menjalankan seeder:', err.message);
     process.exit(1);
 });
+

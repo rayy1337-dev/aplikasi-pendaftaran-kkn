@@ -12,3 +12,4 @@
     "install:all": "npm run install:backend && npm run install:frontend"
   }
 }
+

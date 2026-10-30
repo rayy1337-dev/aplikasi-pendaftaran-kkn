@@ -10,7 +10,7 @@
     "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
   },
   "variable": [
-    { "key": "baseUrl", "value": "http://localhost:5000" },
+    { "key": "baseUrl", "value": "http://localhost:5001" },
     { "key": "token", "value": "" },
     { "key": "locationId", "value": "1" },
     { "key": "registrationId", "value": "1" },

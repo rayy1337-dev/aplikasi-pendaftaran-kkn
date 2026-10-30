@@ -26,6 +26,7 @@ async function register(req, res) {
     const email = typeof body.email === 'string' ? body.email.trim().toLowerCase() : '';
     const profileFields = ['nama_lengkap', 'program_studi', 'fakultas', 'no_hp', 'total_sks'];
     const hasProfile = Boolean(email || profileFields.some((field) => body[field] !== undefined));
+    let totalSks = 0;
 
     if (!nim || nim.length > 32) {
         return res.status(400).json({ status: 'Gagal', message: 'NIM wajib diisi dan maksimal 32 karakter.' });
@@ -42,7 +43,7 @@ async function register(req, res) {
     if (hasProfile) {
         const textFields = profileFields.filter((field) => field !== 'total_sks');
         const invalidText = textFields.some((field) => typeof body[field] !== 'string' || !body[field].trim());
-        const totalSks = typeof body.total_sks === 'number' ? body.total_sks : Number(body.total_sks);
+        totalSks = typeof body.total_sks === 'number' ? body.total_sks : Number(body.total_sks);
         if (!email || invalidText || !Number.isInteger(totalSks) || totalSks < 0
             || totalSks > 4294967295 || typeof body.total_sks === 'boolean'
             || body.total_sks === null
