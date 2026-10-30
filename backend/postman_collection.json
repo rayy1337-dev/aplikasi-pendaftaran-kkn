@@ -1,0 +1,193 @@
+{
+  "info": {
+    "_postman_id": "4c95fb44-7b23-4dca-bac2-18f53a2ad601",
+    "name": "Pendaftaran KKN API",
+    "description": "Set baseUrl ke http://localhost:5000. Jalankan register atau login; salin data.token ke variabel token untuk request terproteksi. Akun admin dibuat dengan mengubah role akun melalui database. Semua response JSON memakai status dan data/message. Upload berkas berukuran maksimal 5 MB; endpoint file download memakai Bearer token dan hanya dapat diakses pemilik berkas atau admin.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:5000" },
+    { "key": "token", "value": "" },
+    { "key": "locationId", "value": "1" },
+    { "key": "registrationId", "value": "1" },
+    { "key": "fileId", "value": "1" }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register mahasiswa",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"mahasiswa@example.com\",\n  \"password\": \"password-kampus\",\n  \"nim\": \"20260001\",\n  \"nama_lengkap\": \"Nama Mahasiswa\",\n  \"program_studi\": \"Informatika\",\n  \"fakultas\": \"Teknik\",\n  \"no_hp\": \"081234567890\",\n  \"jenis_kelamin\": \"L\",\n  \"total_sks\": 100\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/api/auth/register", "host": ["{{baseUrl}}"], "path": ["api", "auth", "register"] },
+            "description": "201 response: {\"status\":\"Sukses\",\"data\":{\"user\":{\"id\":1,\"nim\":\"20260001\",\"email\":\"mahasiswa@example.com\",\"role\":\"mahasiswa\"},\"profile\":{\"id\":1,\"nim\":\"20260001\",\"nama_lengkap\":\"Nama Mahasiswa\"},\"token\":\"<JWT>\"}}. NIM dan email harus unik. Format lama {\"nim\":\"20260001\",\"password\":\"...\"} tetap diterima tanpa membuat profil."
+          }
+        },
+        {
+          "name": "Login dengan email atau NIM",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"email\": \"mahasiswa@example.com\",\n  \"password\": \"password-kampus\"\n}" },
+            "url": { "raw": "{{baseUrl}}/api/auth/login", "host": ["{{baseUrl}}"], "path": ["api", "auth", "login"] },
+            "description": "Response: {\"status\":\"Sukses\",\"data\":{\"token\":\"<JWT>\",\"user\":{\"id\":1,\"nim\":\"20260001\",\"email\":\"mahasiswa@example.com\",\"role\":\"mahasiswa\"},\"profile\":{},\"role\":\"mahasiswa\"}}. Bisa juga mengirim nim sebagai pengganti email."
+          }
+        },
+        {
+          "name": "Profil akun saat ini",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/api/auth/me", "host": ["{{baseUrl}}"], "path": ["api", "auth", "me"] },
+            "description": "Requires Bearer token. Response: {\"status\":\"Sukses\",\"data\":{\"user\":{\"id\":1,\"nim\":\"20260001\",\"role\":\"mahasiswa\"},\"profile\":{}}}."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Lokasi KKN",
+      "item": [
+        {
+          "name": "Daftar lokasi dan sisa kuota",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/api/locations", "host": ["{{baseUrl}}"], "path": ["api", "locations"] },
+            "description": "Publik. Response: {\"status\":\"Sukses\",\"data\":[{\"id\":1,\"nama_desa_wilayah\":\"Desa Contoh\",\"kuota_maksimal\":30,\"kuota_terisi\":4,\"kuota_tersedia\":26,\"status_aktif\":1}]}."
+          }
+        },
+        {
+          "name": "Buat lokasi (admin)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"nama_desa_wilayah\": \"Desa Contoh\",\n  \"kecamatan\": \"Kecamatan Contoh\",\n  \"kabupaten\": \"Kabupaten Contoh\",\n  \"kuota_maksimal\": 30,\n  \"periode_kkn\": \"2026/2027\",\n  \"status_aktif\": true\n}" },
+            "url": { "raw": "{{baseUrl}}/api/locations", "host": ["{{baseUrl}}"], "path": ["api", "locations"] },
+            "description": "Admin only. 201 response data berisi lokasi baru, kuota_terisi=0, serta kuota_tersedia sama dengan kuota_maksimal."
+          }
+        },
+        {
+          "name": "Perbarui lokasi (admin)",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"kuota_maksimal\": 40,\n  \"status_aktif\": true\n}" },
+            "url": { "raw": "{{baseUrl}}/api/locations/{{locationId}}", "host": ["{{baseUrl}}"], "path": ["api", "locations", "{{locationId}}"] },
+            "description": "Admin only; seluruh field bersifat opsional. Kuota maksimal tidak boleh diturunkan di bawah kuota terisi. Response data berisi lokasi terbaru dan sisa kuota."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pendaftaran dan berkas",
+      "item": [
+        {
+          "name": "Daftar KKN (mahasiswa)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"location_id\": 1\n}" },
+            "url": { "raw": "{{baseUrl}}/api/registrations", "host": ["{{baseUrl}}"], "path": ["api", "registrations"] },
+            "description": "Mahasiswa only. Response 201 data memuat id, mahasiswa_id, location_id, lokasi dan status pending. Kuota diperiksa dan dinaikkan dalam satu transaksi; 409 jika kuota penuh."
+          }
+        },
+        {
+          "name": "Riwayat pendaftaran saya",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/api/registrations/my", "host": ["{{baseUrl}}"], "path": ["api", "registrations", "my"] },
+            "description": "Mahasiswa only. Response data berisi pendaftaran, lokasi, status, catatan admin, dan daftar berkas."
+          }
+        },
+        {
+          "name": "Upload berkas (mahasiswa)",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                { "key": "registration_id", "value": "{{registrationId}}", "type": "text" },
+                { "key": "jenis_berkas", "value": "ktm", "type": "text" },
+                { "key": "file", "type": "file", "src": "" }
+              ]
+            },
+            "url": { "raw": "{{baseUrl}}/api/registrations/upload", "host": ["{{baseUrl}}"], "path": ["api", "registrations", "upload"] },
+            "description": "Mahasiswa only; pilih file PDF/JPG/JPEG/PNG (maksimal 5 MB). Jenis: ktm, khs, surat_sehat, surat_izin. Response 201: {\"status\":\"Sukses\",\"data\":{\"id\":1,\"registration_id\":1,\"jenis_berkas\":\"ktm\",\"file_url\":\"/api/registrations/files/1\"}}. Jangan set Content-Type multipart manual; Postman akan mengisi boundary."
+          }
+        },
+        {
+          "name": "Unduh berkas (pemilik/admin)",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/api/registrations/files/{{fileId}}", "host": ["{{baseUrl}}"], "path": ["api", "registrations", "files", "{{fileId}}"] },
+            "description": "Mengembalikan file asli. Wajib Bearer token pemilik pendaftaran atau admin; akses mahasiswa lain ditolak."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "Daftar pendaftar (admin)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/registrations?status=pending&search=Nama&page=1&limit=20",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "admin", "registrations"],
+              "query": [
+                { "key": "status", "value": "pending" },
+                { "key": "search", "value": "Nama" },
+                { "key": "page", "value": "1" },
+                { "key": "limit", "value": "20" }
+              ]
+            },
+            "description": "Admin only. status opsional: pending, verified, revision, approved, rejected. Response berisi data relasi mahasiswa/lokasi, berkas, dan pagination."
+          }
+        },
+        {
+          "name": "Verifikasi pendaftaran (admin)",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"status\": \"verified\",\n  \"catatan_admin\": \"Berkas lengkap\"\n}" },
+            "url": { "raw": "{{baseUrl}}/api/admin/registrations/{{registrationId}}/verify", "host": ["{{baseUrl}}"], "path": ["api", "admin", "registrations", "{{registrationId}}", "verify"] },
+            "description": "Admin only. Status yang diterima: verified, revision, approved, rejected. Response memuat status terbaru; ketika ditolak kuota dilepas dan pemulihan dari rejected memeriksa kuota lagi."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pengumuman",
+      "item": [
+        {
+          "name": "Daftar pengumuman",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/api/announcements", "host": ["{{baseUrl}}"], "path": ["api", "announcements"] },
+            "description": "Publik. Response: {\"status\":\"Sukses\",\"data\":[{\"id\":1,\"judul\":\"Hasil Penempatan KKN\",\"konten\":\"...\",\"lampiran_pdf_url\":null,\"tanggal_rilis\":\"...\"}]}."
+          }
+        },
+        {
+          "name": "Buat pengumuman (admin)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"judul\": \"Hasil Penempatan KKN\",\n  \"konten\": \"Silakan periksa lokasi penempatan masing-masing.\",\n  \"lampiran_pdf_url\": \"https://example.com/hasil-kkn.pdf\"\n}" },
+            "url": { "raw": "{{baseUrl}}/api/announcements", "host": ["{{baseUrl}}"], "path": ["api", "announcements"] },
+            "description": "Admin only. lampiran_pdf_url boleh null atau tidak dikirim. Response 201 berisi pengumuman yang dibuat."
+          }
+        }
+      ]
+    }
+  ]
+}

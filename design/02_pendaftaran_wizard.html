@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portal Mahasiswa SIM KKN: Formulir Pendaftaran Multi-Step</title>
+<!-- Google Fonts: Space Grotesk & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN with forms & container-queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config directly adhering to theme specification -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed-variant": "#005236",
+            "on-tertiary-fixed": "#2f1500",
+            "on-tertiary": "#ffffff",
+            "secondary-fixed-dim": "#4edea3",
+            "tertiary-fixed": "#ffdcc3",
+            "tertiary-fixed-dim": "#ffb77d",
+            "surface-tint": "#1b6b51",
+            "secondary": "#006c49",
+            "outline": "#6f7973",
+            "on-primary-fixed-variant": "#00513b",
+            "surface-container-lowest": "#ffffff",
+            "on-primary": "#ffffff",
+            "surface-container-high": "#e2e7ff",
+            "outline-variant": "#bec9c2",
+            "on-tertiary-fixed-variant": "#6e3900",
+            "on-surface-variant": "#3f4944",
+            "surface-container": "#eaedff",
+            "background": "#faf8ff",
+            "error-container": "#ffdad6",
+            "secondary-fixed": "#6ffbbe",
+            "primary-fixed-dim": "#8bd6b6",
+            "on-secondary-fixed": "#002113",
+            "surface-container-low": "#f2f3ff",
+            "surface-dim": "#d2d9f4",
+            "surface-container-highest": "#dae2fd",
+            "inverse-primary": "#8bd6b6",
+            "inverse-on-surface": "#eef0ff",
+            "on-tertiary-container": "#ffb87e",
+            "on-primary-fixed": "#002116",
+            "primary-fixed": "#a6f2d1",
+            "on-error-container": "#93000a",
+            "tertiary-container": "#804300",
+            "tertiary": "#5e3000",
+            "on-error": "#ffffff",
+            "on-surface": "#131b2e",
+            "error": "#ba1a1a",
+            "surface-variant": "#dae2fd",
+            "primary-container": "#065f46",
+            "on-primary-container": "#8bd6b7",
+            "on-secondary": "#ffffff",
+            "on-background": "#131b2e",
+            "on-secondary-container": "#00714d",
+            "inverse-surface": "#283044",
+            "surface": "#faf8ff",
+            "surface-bright": "#faf8ff",
+            "secondary-container": "#6cf8bb",
+            "primary": "#004532"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2.5rem",
+            "space-md": "1rem",
+            "gutter-sm": "1rem",
+            "gutter-lg": "2rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem",
+            "margin-sm": "1rem",
+            "space-sm": "0.5rem",
+            "margin-lg": "3rem",
+            "margin": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Space Grotesk"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-badge": ["Space Grotesk"],
+            "headline-xl": ["Space Grotesk"],
+            "headline-xl-mobile": ["Space Grotesk"],
+            "display-hero": ["Space Grotesk"],
+            "display-hero-mobile": ["Space Grotesk"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-xl": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Space Grotesk"],
+            "headline-sm": ["Space Grotesk"],
+            "body-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "label-badge": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "display-hero": ["52px", { "lineHeight": "60px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+            "display-hero-mobile": ["36px", { "lineHeight": "42px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-xl": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #F8FAFC;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-[#F8FAFC] text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col justify-between selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- ==================== 1. TOP PORTAL HEADER ==================== -->
+<header class="bg-surface-container-lowest border-b border-[#E2E8F0] shadow-sm sticky top-0 z-50">
+<div class="w-full max-w-[1280px] mx-auto px-6 md:px-12 flex justify-between items-center h-20">
+<!-- Brand & Period Context -->
+<div class="flex items-center gap-4">
+<!-- University Academic Seal Icon -->
+<div class="w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center text-white shadow-sm ring-2 ring-primary-fixed/30 flex-shrink-0">
+<span class="material-symbols-outlined text-[28px]" data-icon="account_balance">account_balance</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight">SIM KKN LPPM</span>
+<span class="hidden sm:inline-block px-2.5 py-0.5 rounded-full bg-[#ECFDF5] text-[#065F46] border border-[#A7F3D0] font-label-badge text-label-badge uppercase tracking-wider">
+              Periode Gasal 2026/2027
+            </span>
+</div>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Lembaga Penelitian dan Pengabdian kepada Masyarakat</span>
+<span class="inline-flex items-center gap-1 text-[11px] font-semibold text-[#D97706] bg-[#FEF3C7] border border-[#FCD34D] px-2 py-0.2 rounded">
+<span class="w-1.5 h-1.5 rounded-full bg-[#D97706] animate-pulse"></span>
+              Gelombang 1 - Reguler
+            </span>
+</div>
+</div>
+</div>
+<!-- Right: Student Profile & Quick Status Widget -->
+<div class="flex items-center gap-4">
+<!-- SKS Status Pill -->
+<div class="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#ECFDF5] border border-[#A7F3D0] text-[#065F46]">
+<span class="material-symbols-outlined text-[18px] text-[#047857]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<div class="text-left leading-tight">
+<div class="font-label-badge text-label-badge text-[#047857] uppercase">Status Prasyarat</div>
+<div class="font-label-md text-label-md font-bold text-[#065F46]">112 SKS (Eligible)</div>
+</div>
+</div>
+<!-- Notification Bell -->
+<button aria-label="Notifikasi" class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-primary" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-white"></span>
+</button>
+<div class="h-8 w-px bg-[#E2E8F0] hidden sm:block"></div>
+<!-- Student Profile Card Details -->
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full border-2 border-primary-fixed object-cover shadow-xs" data-alt="A portrait of a young Indonesian male university student in a sharp emerald green academic blazer, standing against a softly lit modern institutional campus library with gentle natural daylight reflecting on polished wood panels." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwwegAIuI1WJbJTmxzg55MJ9aSMBp7NyhSZCjctDtWxY9e4Z2j6KIygmoBlxizkkOgAa1DHkjbOcie8uCRbd7n2jU0z0jGLUud3oXBRp_t0e_ozTUrWXG6W9zwBmvl08cD-lT5Obv4mUAShqTYGUiexnDfzM1XdvCmE2sEe63yJ8TNgfOhYO_ufLAfZ-3zsyRpzqw_sxF1eh42qENBbhMGYDre6y-CGRyQH-YyhE4Caje6xKq9gQu-B1PL_NA_7uUCse0JZPrKBbI"/>
+<div class="hidden md:flex flex-col text-left leading-tight">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Virdi Santoso</span>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
+<span class="bg-[#F1F5F9] px-1.5 py-0.5 rounded text-[11px] font-mono font-medium text-slate-700">2108521045</span>
+<span>•</span>
+<span class="truncate max-w-[130px]">Teknik Informatika - S1</span>
+</div>
+</div>
+</div>
+<!-- Logout Action Button -->
+<button class="p-2 rounded-lg text-on-surface-variant hover:text-error hover:bg-error-container/40 transition-colors duration-150 ml-1" title="Keluar dari Portal" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="logout">logout</span>
+</button>
+</div>
+</div>
+</header>
+<!-- ==================== 2. PROGRESS STEPPER / WIZARD TRACKER ==================== -->
+<section class="w-full max-w-[1280px] mx-auto px-6 md:px-12 pt-8 pb-4">
+<div class="bg-surface-container-lowest rounded-xl border border-[#E2E8F0] p-6 shadow-sm">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+<!-- Step 1: Data Diri (Completed) -->
+<div class="flex items-center gap-3.5 relative">
+<div class="w-10 h-10 rounded-full bg-primary-container text-white flex items-center justify-center font-bold flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[20px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<div class="font-label-badge text-label-badge uppercase text-[#047857] flex items-center gap-1">
+<span>Langkah 1</span>
+<span class="font-normal text-slate-400">• Selesai</span>
+</div>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">1. Data Diri &amp; Akademik</div>
+<div class="font-body-sm text-body-sm text-slate-500">Terverifikasi SIAKAD</div>
+</div>
+<div class="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 text-slate-300">
+<span class="material-symbols-outlined text-[20px]" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Step 2: Pemilihan Lokasi KKN (Active Primary) -->
+<div class="flex items-center gap-3.5 relative bg-[#ECFDF5]/60 p-2.5 rounded-lg border border-[#A7F3D0]">
+<div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-headline-sm font-bold flex-shrink-0 ring-4 ring-[#A7F3D0]/60">
+            2
+          </div>
+<div>
+<div class="font-label-badge text-label-badge uppercase text-primary font-bold flex items-center gap-1.5">
+<span>Langkah 2</span>
+<span class="inline-block w-2 h-2 rounded-full bg-[#10B981] animate-ping"></span>
+</div>
+<div class="font-label-lg text-label-lg text-primary font-bold">2. Pemilihan Lokasi KKN</div>
+<div class="font-body-sm text-body-sm text-[#065F46] font-medium">Sedang Berjalan</div>
+</div>
+<div class="hidden md:block absolute -right-2 top-1/2 -translate-y-1/2 text-slate-300">
+<span class="material-symbols-outlined text-[20px]" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Step 3: Unggah Berkas Persyaratan (Parallel Focus in Step 2/3 workspace) -->
+<div class="flex items-center gap-3.5 relative p-2.5 rounded-lg border border-dashed border-[#CBD5E1] bg-surface-container-low/40">
+<div class="w-10 h-10 rounded-full bg-white border-2 border-primary text-primary flex items-center justify-center font-headline-sm font-bold flex-shrink-0">
+            3
+          </div>
+<div>
+<div class="font-label-badge text-label-badge uppercase text-slate-500">Langkah 3</div>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">3. Berkas Persyaratan</div>
+<div class="font-body-sm text-body-sm text-[#047857] font-medium">2 dari 4 Diunggah</div>
+</div>
+<div class="hidden md:block absolute -right-2 top-1/2 -translate-y-1/2 text-slate-300">
+<span class="material-symbols-outlined text-[20px]" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Step 4: Review & Finalisasi (Locked Upcoming) -->
+<div class="flex items-center gap-3.5 opacity-60">
+<div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-300 text-slate-400 flex items-center justify-center font-headline-sm font-bold flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]" data-icon="lock">lock</span>
+</div>
+<div>
+<div class="font-label-badge text-label-badge uppercase text-slate-400">Langkah 4</div>
+<div class="font-label-lg text-label-lg text-slate-500 font-medium">4. Review &amp; Finalisasi</div>
+<div class="font-body-sm text-body-sm text-slate-400">Terkunci Sementara</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== 3. MAIN FORM WORKSPACE ==================== -->
+<main class="w-full max-w-[1280px] mx-auto px-6 md:px-12 py-6 flex-grow">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- ==================== LEFT COLUMN: PEMILIHAN LOKASI & KUOTA (7 Columns) ==================== -->
+<section class="lg:col-span-7 flex flex-col gap-6">
+<!-- Header & Action Status -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-surface-container-lowest p-5 rounded-xl border border-[#E2E8F0]">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[24px]" data-icon="pin_drop">pin_drop</span>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Pilih Lokasi &amp; Mitra Pengabdian Desa</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">
+              Pilih 1 (satu) desa penempatan KKN Reguler sesuai kuota dan peminatan tema.
+            </p>
+</div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#ECFDF5] text-[#065F46] border border-[#A7F3D0] font-label-md text-label-md font-bold self-start sm:self-auto">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            1 Desa Dipilih
+          </span>
+</div>
+<!-- Filter & Search Controls -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-[#E2E8F0] shadow-xs flex flex-col md:flex-row gap-3 items-center">
+<!-- Search Input -->
+<div class="relative w-full md:flex-grow">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-[#CBD5E1] text-on-surface font-body-md text-body-md focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 placeholder:text-slate-400" placeholder="Cari nama desa, kecamatan, atau tema program..." type="text" value=""/>
+</div>
+<!-- Dropdown Filter Kecamatan -->
+<div class="relative w-full md:w-48">
+<select class="w-full appearance-none pl-3.5 pr-9 py-2.5 rounded-lg border border-[#CBD5E1] text-on-surface font-body-md text-body-md bg-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20">
+<option value="">Semua Kecamatan</option>
+<option selected="" value="lembang">Lembang</option>
+<option value="ciasem">Ciasem</option>
+<option value="tanjungsari">Tanjungsari</option>
+<option value="pacet">Pacet</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-[20px]" data-icon="expand_more">expand_more</span>
+</div>
+<!-- Kuota Filter -->
+<div class="relative w-full md:w-44">
+<select class="w-full appearance-none pl-3.5 pr-9 py-2.5 rounded-lg border border-[#CBD5E1] text-on-surface font-body-md text-body-md bg-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20">
+<option value="">Status Kuota</option>
+<option selected="" value="tersedia">Tersedia</option>
+<option value="hampir_penuh">Hampir Penuh</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-[20px]" data-icon="tune">tune</span>
+</div>
+</div>
+<!-- Village Selection Cards Container -->
+<div class="flex flex-col gap-4">
+<!-- Card 1: Selected Active Card (Desa Cibodas) -->
+<div class="relative bg-[#ECFDF5]/50 border-2 border-primary-container rounded-xl p-5 shadow-sm transition-all duration-200 ring-2 ring-primary-container/20">
+<!-- Top Stripe Accent -->
+<div class="absolute top-0 left-0 right-0 h-1.5 bg-primary-container rounded-t-lg"></div>
+<div class="flex items-start justify-between gap-4 mb-3">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">Desa Cibodas</span>
+<span class="px-2.5 py-0.5 rounded-full bg-primary-container text-white font-label-badge text-label-badge uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="check" style="font-variation-settings: 'FILL' 1;">check</span>
+                    Terpilih
+                  </span>
+</div>
+<div class="flex items-center gap-1.5 font-label-md text-label-md text-slate-600">
+<span class="material-symbols-outlined text-[16px] text-slate-500" data-icon="location_on">location_on</span>
+<span>Kecamatan Lembang, Kab. Bandung Barat</span>
+</div>
+</div>
+<!-- Radio Control (Checked) -->
+<div class="pt-1">
+<input checked="" class="w-5 h-5 text-primary-container border-slate-300 focus:ring-primary-container" name="desa_pilihan" type="radio"/>
+</div>
+</div>
+<!-- Focus Theme & DPL -->
+<div class="bg-white/80 rounded-lg p-3 border border-[#A7F3D0] mb-4 space-y-2">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary-container text-[18px] mt-0.5" data-icon="psychology">psychology</span>
+<div>
+<span class="font-label-badge text-label-badge uppercase text-slate-500 block">Tema Fokus Pengabdian:</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Ekowisata Berkelanjutan &amp; Digitalisasi UMKM Kopi</span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-1 border-t border-slate-100 text-slate-700">
+<span class="material-symbols-outlined text-[18px] text-slate-500" data-icon="person_outline">person_outline</span>
+<span class="font-body-sm text-body-sm">
+                  DPL: <strong class="font-semibold text-slate-900">Dr. Ir. Hendra Gunawan, M.T.</strong>
+</span>
+</div>
+</div>
+<!-- Regional Quota Progress Gauge -->
+<div class="mb-4">
+<div class="flex justify-between items-center text-body-sm font-label-md mb-1.5">
+<span class="text-slate-600">Kapasitas Mahasiswa Terisi</span>
+<span class="font-bold text-[#065F46]">19 / 25 Mahasiswa (Sisa 6 Kursi)</span>
+</div>
+<div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+<div class="bg-[#10B981] h-full rounded-full transition-all duration-300" style="width: 76%"></div>
+</div>
+</div>
+<!-- Pill Badges -->
+<div class="flex flex-wrap gap-2 items-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-white border border-[#CBD5E1] text-[12px] font-medium text-slate-700">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="handshake">handshake</span>
+                Mitra Aktif Pemda
+              </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-white border border-[#CBD5E1] text-[12px] font-medium text-slate-700">
+<span class="material-symbols-outlined text-[14px] text-secondary" data-icon="wifi">wifi</span>
+                Akses Internet Baik
+              </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#FEF3C7] border border-[#FCD34D] text-[12px] font-bold text-[#92400E]">
+<span class="material-symbols-outlined text-[14px] text-[#D97706]" data-icon="stars">stars</span>
+                Reguler Prioritas
+              </span>
+</div>
+</div>
+<!-- Card 2: Desa Sukamaju -->
+<div class="relative bg-white border border-[#E2E8F0] hover:border-slate-400 rounded-xl p-5 shadow-xs transition-all duration-150">
+<div class="flex items-start justify-between gap-4 mb-3">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">Desa Sukamaju</span>
+<span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 font-label-badge text-label-badge">
+                    Tersedia
+                  </span>
+</div>
+<div class="flex items-center gap-1.5 font-label-md text-label-md text-slate-600">
+<span class="material-symbols-outlined text-[16px] text-slate-400" data-icon="location_on">location_on</span>
+<span>Kecamatan Ciasem, Kab. Subang</span>
+</div>
+</div>
+<!-- Radio Control (Unchecked) -->
+<div class="pt-1">
+<input class="w-5 h-5 text-primary-container border-slate-300 focus:ring-primary-container" name="desa_pilihan" type="radio"/>
+</div>
+</div>
+<!-- Details -->
+<div class="bg-slate-50/70 rounded-lg p-3 border border-slate-100 mb-4 space-y-1.5">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-slate-500 text-[18px] mt-0.5" data-icon="health_and_safety">health_and_safety</span>
+<div>
+<span class="font-label-badge text-label-badge uppercase text-slate-400 block">Tema Fokus:</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Sanitasi Lingkungan &amp; Penurunan Prevalensi Stunting</span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-1 border-t border-slate-200/60 text-slate-600">
+<span class="material-symbols-outlined text-[16px] text-slate-400" data-icon="person_outline">person_outline</span>
+<span class="font-body-sm text-body-sm">
+                  DPL: <strong class="font-medium text-slate-800">Ns. Ratna Komala, M.Kep</strong>
+</span>
+</div>
+</div>
+<!-- Quota Progress Gauge -->
+<div class="mb-4">
+<div class="flex justify-between items-center text-body-sm font-label-md mb-1.5">
+<span class="text-slate-500">Kapasitas Mahasiswa Terisi</span>
+<span class="font-semibold text-slate-700">16 / 30 Mahasiswa (Sisa 14 Kuota)</span>
+</div>
+<div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 53%"></div>
+</div>
+</div>
+<!-- Badges -->
+<div class="flex flex-wrap gap-2 items-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-slate-100 border border-slate-200 text-[11px] font-medium text-slate-700">
+<span class="material-symbols-outlined text-[13px] text-rose-600" data-icon="local_hospital">local_hospital</span>
+                Prioritas Kesehatan
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-slate-100 border border-slate-200 text-[11px] font-medium text-slate-700">
+<span class="material-symbols-outlined text-[13px] text-emerald-600" data-icon="home_work">home_work</span>
+                Posko Tersedia
+              </span>
+</div>
+</div>
+<!-- Card 3: Desa Margalaksana (Hampir Penuh - Amber Alert) -->
+<div class="relative bg-white border border-[#CBD5E1] hover:border-amber-400 rounded-xl p-5 shadow-xs transition-all duration-150">
+<div class="flex items-start justify-between gap-4 mb-3">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">Desa Margalaksana</span>
+<span class="px-2 py-0.5 rounded-full bg-[#FEF3C7] text-[#92400E] border border-[#FCD34D] font-label-badge text-label-badge font-bold">
+                    Hampir Penuh
+                  </span>
+</div>
+<div class="flex items-center gap-1.5 font-label-md text-label-md text-slate-600">
+<span class="material-symbols-outlined text-[16px] text-slate-400" data-icon="location_on">location_on</span>
+<span>Kecamatan Tanjungsari, Kab. Sumedang</span>
+</div>
+</div>
+<!-- Radio Control (Unchecked) -->
+<div class="pt-1">
+<input class="w-5 h-5 text-primary-container border-slate-300 focus:ring-primary-container" name="desa_pilihan" type="radio"/>
+</div>
+</div>
+<!-- Details -->
+<div class="bg-slate-50/70 rounded-lg p-3 border border-slate-100 mb-4 space-y-1.5">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-slate-500 text-[18px] mt-0.5" data-icon="solar_power">solar_power</span>
+<div>
+<span class="font-label-badge text-label-badge uppercase text-slate-400 block">Tema Fokus:</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Digitalisasi BUMDes &amp; Energi Terbarukan Biomassa</span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-1 border-t border-slate-200/60 text-slate-600">
+<span class="material-symbols-outlined text-[16px] text-slate-400" data-icon="person_outline">person_outline</span>
+<span class="font-body-sm text-body-sm">
+                  DPL: <strong class="font-medium text-slate-800">Ir. Wawan Setiawan, M.T.</strong>
+</span>
+</div>
+</div>
+<!-- Quota Progress Gauge -->
+<div class="mb-4">
+<div class="flex justify-between items-center text-body-sm font-label-md mb-1.5">
+<span class="text-slate-500">Kapasitas Mahasiswa Terisi</span>
+<span class="font-bold text-[#D97706]">22 / 25 Mahasiswa (Sisa 3 Kuota)</span>
+</div>
+<div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+<div class="bg-[#D97706] h-full rounded-full" style="width: 88%"></div>
+</div>
+</div>
+<!-- Badges -->
+<div class="flex flex-wrap gap-2 items-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#FFF1F2] border border-[#FECDD3] text-[11px] font-bold text-[#BE123C]">
+<span class="material-symbols-outlined text-[13px]" data-icon="alarm">alarm</span>
+                Prioritas Cepat
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-slate-100 border border-slate-200 text-[11px] font-medium text-slate-700">
+<span class="material-symbols-outlined text-[13px] text-amber-600" data-icon="storefront">storefront</span>
+                BUMDes Maju
+              </span>
+</div>
+</div>
+<!-- Card 4: Desa Pasirwangi -->
+<div class="relative bg-white border border-[#E2E8F0] hover:border-slate-400 rounded-xl p-5 shadow-xs transition-all duration-150">
+<div class="flex items-start justify-between gap-4 mb-3">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">Desa Pasirwangi</span>
+<span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-label-badge text-label-badge">
+                    Kuota Luas
+                  </span>
+</div>
+<div class="flex items-center gap-1.5 font-label-md text-label-md text-slate-600">
+<span class="material-symbols-outlined text-[16px] text-slate-400" data-icon="location_on">location_on</span>
+<span>Kecamatan Pacet, Kab. Bandung</span>
+</div>
+</div>
+<!-- Radio Control (Unchecked) -->
+<div class="pt-1">
+<input class="w-5 h-5 text-primary-container border-slate-300 focus:ring-primary-container" name="desa_pilihan" type="radio"/>
+</div>
+</div>
+<!-- Details -->
+<div class="bg-slate-50/70 rounded-lg p-3 border border-slate-100 mb-4 space-y-1.5">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-slate-500 text-[18px] mt-0.5" data-icon="agriculture">agriculture</span>
+<div>
+<span class="font-label-badge text-label-badge uppercase text-slate-400 block">Tema Fokus:</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Ketahanan Pangan &amp; Sistem Irigasi Presisi</span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-1 border-t border-slate-200/60 text-slate-600">
+<span class="material-symbols-outlined text-[16px] text-slate-400" data-icon="person_outline">person_outline</span>
+<span class="font-body-sm text-body-sm">
+                  DPL: <strong class="font-medium text-slate-800">Dr. Agus Priyono, S.P., M.Si.</strong>
+</span>
+</div>
+</div>
+<!-- Quota Progress Gauge -->
+<div class="mb-4">
+<div class="flex justify-between items-center text-body-sm font-label-md mb-1.5">
+<span class="text-slate-500">Kapasitas Mahasiswa Terisi</span>
+<span class="font-semibold text-slate-700">7 / 25 Mahasiswa (Sisa 18 Kuota)</span>
+</div>
+<div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 28%"></div>
+</div>
+</div>
+<!-- Badges -->
+<div class="flex flex-wrap gap-2 items-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-slate-100 border border-slate-200 text-[11px] font-medium text-slate-700">
+<span class="material-symbols-outlined text-[13px] text-emerald-700" data-icon="eco">eco</span>
+                Agrowisata
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-slate-100 border border-slate-200 text-[11px] font-medium text-slate-700">
+<span class="material-symbols-outlined text-[13px] text-sky-600" data-icon="water_drop">water_drop</span>
+                Irigasi Subak
+              </span>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== RIGHT COLUMN: UNGGAH BERKAS PERSYARATAN (5 Columns) ==================== -->
+<section class="lg:col-span-5 flex flex-col gap-6">
+<!-- Header & Completion Overview Banner -->
+<div class="bg-surface-container-lowest p-5 rounded-xl border border-[#E2E8F0] shadow-xs">
+<div class="flex items-center justify-between gap-3 mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[24px]" data-icon="folder_shared">folder_shared</span>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Kelengkapan Dokumen</h2>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#ECFDF5] text-[#065F46] font-label-badge text-label-badge font-bold border border-[#A7F3D0]">
+              2 / 4 Dokumen
+            </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Seluruh berkas persyaratan wajib bertanda tangan dan dalam format PDF sebelum lanjut ke tahap finalisasi.
+          </p>
+<div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-body-sm text-slate-500">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-[#10B981]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              2 Berkas Tervalidasi
+            </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-amber-500" data-icon="pending">pending</span>
+              2 Berkas Perlu Diunggah
+            </span>
+</div>
+</div>
+<!-- Document List Containers (4 Items) -->
+<div class="flex flex-col gap-4">
+<!-- Dokumen 1: KTM Aktif (Verified State) -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-[#E2E8F0] shadow-xs hover:border-[#CBD5E1] transition-all">
+<div class="flex items-start justify-between gap-3 mb-2">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 text-xs font-bold flex items-center justify-center">1</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Kartu Tanda Mahasiswa (KTM)</span>
+</div>
+<span class="inline-flex items-center gap-1 text-[11px] font-bold text-[#047857] bg-[#ECFDF5] border border-[#A7F3D0] px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[14px]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+                Terverifikasi Otomatis
+              </span>
+</div>
+<!-- File Representation Card -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-slate-50 border border-slate-200 mt-2">
+<div class="flex items-center gap-3 overflow-hidden">
+<div class="w-9 h-9 rounded bg-rose-100 text-rose-700 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]" data-icon="picture_as_pdf">picture_as_pdf</span>
+</div>
+<div class="truncate">
+<div class="font-label-md text-label-md font-semibold text-slate-800 truncate">ktm_2108521045_virdi.pdf</div>
+<div class="font-body-sm text-body-sm text-slate-400">1.1 MB • Terhubung via SIAKAD</div>
+</div>
+</div>
+<button class="ml-2 px-2.5 py-1 text-[12px] font-semibold text-slate-600 hover:text-primary hover:bg-white rounded border border-slate-200 transition-colors flex-shrink-0" type="button">
+                Ganti Berkas
+              </button>
+</div>
+</div>
+<!-- Dokumen 2: Transkrip Nilai (Verified State) -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-[#E2E8F0] shadow-xs hover:border-[#CBD5E1] transition-all">
+<div class="flex items-start justify-between gap-3 mb-2">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 text-xs font-bold flex items-center justify-center">2</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Transkrip Nilai Resmi (Min. 100 SKS)</span>
+</div>
+<span class="inline-flex items-center gap-1 text-[11px] font-bold text-[#047857] bg-[#ECFDF5] border border-[#A7F3D0] px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                112 SKS Valid
+              </span>
+</div>
+<!-- File Representation Card -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-slate-50 border border-slate-200 mt-2">
+<div class="flex items-center gap-3 overflow-hidden">
+<div class="w-9 h-9 rounded bg-rose-100 text-rose-700 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]" data-icon="picture_as_pdf">picture_as_pdf</span>
+</div>
+<div class="truncate">
+<div class="font-label-md text-label-md font-semibold text-slate-800 truncate">transkrip_akademik_smt5_signed.pdf</div>
+<div class="font-body-sm text-body-sm text-slate-400">2.4 MB • Disahkan BAAK</div>
+</div>
+</div>
+<button class="ml-2 px-2.5 py-1 text-[12px] font-semibold text-slate-600 hover:text-primary hover:bg-white rounded border border-slate-200 transition-colors flex-shrink-0" type="button">
+                Ganti Berkas
+              </button>
+</div>
+</div>
+<!-- Dokumen 3: Surat Keterangan Sehat (Pending Dropzone) -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border-2 border-dashed border-[#A7F3D0] bg-[#F8FFFC] shadow-xs">
+<div class="flex items-start justify-between gap-3 mb-2">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-[#ECFDF5] text-primary-container text-xs font-bold flex items-center justify-center border border-[#A7F3D0]">3</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Surat Keterangan Sehat Puskesmas/RS</span>
+</div>
+<span class="inline-flex items-center gap-1 text-[11px] font-bold text-[#BE123C] bg-[#FFF1F2] border border-[#FECDD3] px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[13px]" data-icon="error">error</span>
+                Wajib Diunggah
+              </span>
+</div>
+<!-- Drag & Drop Container -->
+<div class="mt-3 p-5 rounded-lg border border-dashed border-[#065F46]/40 hover:border-primary-container bg-white flex flex-col items-center justify-center text-center cursor-pointer transition-colors group">
+<div class="w-12 h-12 rounded-full bg-[#ECFDF5] text-primary-container flex items-center justify-center mb-2 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[26px]" data-icon="cloud_upload">cloud_upload</span>
+</div>
+<div class="font-label-md text-label-md font-bold text-on-surface mb-0.5">
+                Tarik file PDF ke sini atau <span class="text-primary-container underline underline-offset-2">Klik untuk Unggah</span>
+</div>
+<div class="font-body-sm text-body-sm text-slate-500 max-w-xs mb-3">
+                Format PDF, maksimal 2.0 MB. Wajib mencantumkan cap basah faskes resmi pemerintah.
+              </div>
+<button class="px-4 py-2 rounded-lg bg-[#ECFDF5] text-[#065F46] hover:bg-[#D1FAE5] border border-[#A7F3D0] font-label-md text-label-md font-bold transition-all shadow-xs flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="upload_file">upload_file</span>
+                Pilih Dokumen
+              </button>
+</div>
+</div>
+<!-- Dokumen 4: Surat Persetujuan Orang Tua/Wali (Actionable Dropzone with Template) -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-[#E2E8F0] shadow-xs">
+<div class="flex items-start justify-between gap-3 mb-2">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 text-xs font-bold flex items-center justify-center">4</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Surat Persetujuan Orang Tua / Wali</span>
+</div>
+<span class="inline-flex items-center gap-1 text-[11px] font-bold text-[#D97706] bg-[#FEF3C7] border border-[#FCD34D] px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[13px]" data-icon="pending">pending</span>
+                Belum Ada
+              </span>
+</div>
+<!-- Download Official Template Banner -->
+<div class="p-3 rounded-lg bg-amber-50/60 border border-amber-200/80 mb-3 flex items-center justify-between gap-2">
+<div class="flex items-center gap-2 overflow-hidden">
+<span class="material-symbols-outlined text-amber-700 text-[20px] flex-shrink-0" data-icon="description">description</span>
+<div class="font-body-sm text-body-sm text-amber-900 truncate">
+                  Belum memiliki surat persetujuan? Unduh blanko resmi LPPM:
+                </div>
+</div>
+<a class="flex-shrink-0 inline-flex items-center gap-1 text-[12px] font-bold text-amber-800 hover:text-amber-900 hover:underline" href="#download-template">
+<span class="material-symbols-outlined text-[15px]" data-icon="download">download</span>
+                Blanko (.docx)
+              </a>
+</div>
+<!-- Upload Button Trigger Box -->
+<div class="p-3.5 rounded-lg border border-dashed border-slate-300 bg-slate-50 flex items-center justify-between gap-3">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-slate-400 text-[22px]" data-icon="file_upload">file_upload</span>
+<span class="font-body-sm text-body-sm text-slate-600">Dokumen bermaterai Rp10.000 (PDF max 2MB)</span>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-white border border-slate-300 hover:border-primary-container text-slate-800 font-label-md text-label-md font-semibold transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="add">add</span>
+                Unggah Berkas
+              </button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- ==================== 4. BOTTOM STICKY ACTION NAVIGATION BAR ==================== -->
+<aside class="sticky bottom-0 z-40 bg-surface-container-lowest border-t border-[#E2E8F0] shadow-[0_-4px_16px_rgba(15,23,42,0.06)] py-4">
+<div class="w-full max-w-[1280px] mx-auto px-6 md:px-12 flex flex-col sm:flex-row items-center justify-between gap-4">
+<!-- Auto-Save Draft Indicator & Button -->
+<div class="flex items-center gap-3.5 w-full sm:w-auto justify-between sm:justify-start">
+<button class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 font-label-md text-label-md font-semibold transition-all active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-[18px] text-slate-600" data-icon="save">save</span>
+          Simpan sebagai Draf
+        </button>
+<div class="flex items-center gap-1.5 text-body-sm text-slate-400">
+<span class="w-2 h-2 rounded-full bg-[#10B981]"></span>
+<span class="hidden sm:inline">Draf otomatis tersimpan 2 menit lalu</span>
+<span class="sm:hidden text-xs">Tersimpan</span>
+</div>
+</div>
+<!-- Navigation Steps Buttons -->
+<div class="flex items-center gap-3 w-full sm:w-auto justify-end">
+<!-- Back Button -->
+<button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 font-label-md text-label-md font-semibold transition-all active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_back">arrow_back</span>
+          Kembali ke Data Diri
+        </button>
+<!-- Primary Action Button (Next) -->
+<button class="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-primary-container hover:bg-[#047857] text-white font-label-lg text-label-lg font-bold shadow-md hover:shadow-lg transition-all focus:ring-4 focus:ring-[#10B981]/30 active:scale-[0.98]" type="button">
+<span>Lanjut ke Ringkasan &amp; Konfirmasi</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- ==================== 5. INSTITUTIONAL FOOTER ==================== -->
+<footer class="bg-surface-container-high border-t border-outline-variant mt-12">
+<div class="w-full max-w-[1280px] mx-auto px-6 md:px-12 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<!-- Brand & Copyright -->
+<div class="flex flex-col items-center md:items-start text-center md:text-left">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-[24px]" data-icon="school">school</span>
+<span class="font-headline-md text-headline-md font-bold text-primary">KKN Portal LPPM</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg">
+          © 2025 Lembaga Penelitian dan Pengabdian kepada Masyarakat (LPPM). Hak Cipta Dilindungi Undang-Undang.
+        </p>
+</div>
+<!-- Links defined in Shared Components JSON -->
+<div class="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2">
+<a class="text-on-surface-variant hover:text-primary transition-colors text-body-md font-body-md" href="#panduan">Panduan Operasional KKN</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-body-md font-body-md" href="#pedoman">Pedoman DPL &amp; Mahasiswa</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-body-md font-body-md" href="#sso">Sistem SSO Kampus</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-body-md font-body-md" href="#bantuan">Pusat Bantuan Teknis</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-body-md font-body-md" href="#kontak">Kontak LPPM</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-body-md font-body-md" href="#privasi">Kebijakan Privasi Data</a>
+</div>
+</div>
+</footer>
+</body></html>
