@@ -6,7 +6,9 @@ Direktori ini (`makalah_mpti/`) berisi dokumen resmi Makalah Ujian Tengah Semest
 
 ## 📄 File Utama
 
-* **[MAKALAH_UTS_MPTI_KELOMPOK_2.md](MAKALAH_UTS_MPTI_KELOMPOK_2.md)**: Dokumen lengkap makalah akademik terstruktur dari Halaman Judul, Kata Pengantar, Daftar Isi, Bab I s/d Bab VII, hingga Daftar Pustaka, yang secara khusus menjawab seluruh butir Soal UTS MPTI Ganjil 2026/2027 (Soal 1 s/d Soal 6) dengan nilai 100 poin berbasis OBE.
+* **[MAKALAH_UTS_MPTI_KELOMPOK_2.docx](MAKALAH_UTS_MPTI_KELOMPOK_2.docx)**: **File Microsoft Word resmi hasil kompilasi Python** dengan format standar akademik (Cover Page eksekutif, tabel data berlatar Emerald `#004532`, margin standar 4-3-3-3 cm, tipografi Times New Roman 12 pt, spasi 1.5, callout box, dan pemisah bab rapi). Siap langsung dikumpulkan atau dicetak!
+* **[MAKALAH_UTS_MPTI_KELOMPOK_2.md](MAKALAH_UTS_MPTI_KELOMPOK_2.md)**: Dokumen naskah lengkap markdown akademik terstruktur dari Cover, Kata Pengantar, Daftar Isi, Bab I s/d Bab VII, hingga Daftar Pustaka.
+* **[build_word.py](build_word.py)**: Skrip Python berbasis `python-docx` untuk mengonversi secara otomatis file markdown menjadi dokumen Microsoft Word dengan styling tingkat lanjut.
 
 ---
 
@@ -24,15 +26,10 @@ Direktori ini (`makalah_mpti/`) berisi dokumen resmi Makalah Ujian Tengah Semest
 
 ---
 
-## 🖨️ Cara Konversi ke Format Word / PDF
+## 🐍 Cara Menjalankan Ulang Skrip Generator Python
 
-1. **Menggunakan VS Code Extension:**
-   - Pasang ekstensi **Markdown PDF** atau **Markdown All in One** di VS Code.
-   - Buka file `makalah_mpti/MAKALAH_UTS_MPTI_KELOMPOK_2.md`.
-   - Klik kanan pada editor $\rightarrow$ pilih **Markdown PDF: Export (pdf)** atau **Markdown PDF: Export (docx)**.
-2. **Menggunakan Pandoc (Command Line):**
-   ```bash
-   pandoc makalah_mpti/MAKALAH_UTS_MPTI_KELOMPOK_2.md -o makalah_mpti/MAKALAH_UTS_MPTI_KELOMPOK_2.docx
-   ```
-3. **Copy-Paste langsung ke Google Docs / Microsoft Word:**
-   - Buka preview markdown di editor atau browser, lalu salin langsung teks berformat ke dalam Microsoft Word untuk disesuaikan tata letak font (Times New Roman / Calibri, Margin 4-4-3-3, Spasi 1.5).
+Jika di kemudian hari ada pembaruan pada naskah markdown dan ingin memperbarui dokumen Word:
+```bash
+python makalah_mpti/build_word.py
+```
+Skrip akan otomatis memproses naskah markdown, menerapkan layout margin akademik (Kiri 4 cm, Kanan 3 cm, Atas 3 cm, Bawah 3 cm), membuat tabel terformat, dan menghasilkan file Word siap cetak.
