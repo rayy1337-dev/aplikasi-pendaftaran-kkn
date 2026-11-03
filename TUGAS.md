@@ -87,10 +87,10 @@ Sebagai Frontend Developer, Anda bertanggung jawab membangun antarmuka pengguna 
 - [x] Menerima dan mempelajari design token (warna, font) dari Virdi.
 
 ### Minggu 2: Slicing Halaman Publik & Autentikasi
-- [ ] Slicing Landing Page, informasi jadwal, dan panduan.
-- [ ] Slicing Halaman Login dan Registrasi.
-- [ ] Implementasi manajemen token autentikasi dan komponen `ProtectedRoute`.
-- [ ] Uji coba login/register ke endpoint backend Ricko.
+- [x] Slicing Landing Page, informasi jadwal, dan panduan.
+- [x] Slicing Halaman Login dan Registrasi.
+- [x] Implementasi manajemen token autentikasi dan komponen `ProtectedRoute`.
+- [x] Uji coba login/register ke endpoint backend Ricko.
 
 ### Minggu 3: Formulir Pendaftaran & Dashboard Admin
 - [ ] Membangun form wizard multi-step pendaftaran mahasiswa.

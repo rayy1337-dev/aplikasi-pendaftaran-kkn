@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { GraduationCap, Mail, Phone, MapPin } from 'lucide-react';
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 export default function Footer() {
   return (
     <footer className="app-footer">
@@ -56,7 +58,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Tim Pengelola KKN. Seluruh Hak Cipta Dilindungi.</p>
+          <p>&copy; {CURRENT_YEAR} Tim Pengelola KKN. Seluruh Hak Cipta Dilindungi.</p>
           <p>Didesain oleh Virdi & Dibuat oleh Feris (Frontend)</p>
         </div>
       </div>

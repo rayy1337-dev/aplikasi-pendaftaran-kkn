@@ -1,38 +1,77 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Users, MapPin, CheckCircle, Clock, AlertTriangle, LogOut, Search, Filter } from 'lucide-react';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Users, MapPin, CheckCircle, Clock, LogOut, Search, Home, ShieldCheck } from 'lucide-react';
+import { useAuth } from '../../context/useAuth';
 
 export default function AdminDashboard() {
+  const { user, logout, backendNotice } = useAuth();
   const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState('');
+  const [statusFilter, setStatusFilter] = useState('all');
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    logout();
     navigate('/login');
   };
 
   const sampleApplicants = [
     { nim: '220101001', name: 'Ahmad Fauzi', prodi: 'Teknik Informatika', desa: 'Desa Sukamaju', status: 'Menunggu Verifikasi' },
-    { nim: '220101045', name: 'Siti Nurhaliza', prodi: 'Ilmu Komunikasi', desa: 'Desa Bojong Kulon', status: 'Diverifikasi' },
-    { nim: '220101089', name: 'Budi Santoso', prodi: 'Manajemen', desa: 'Desa Karanganyar', status: 'Revisi Berkas' },
+    { nim: '220101045', name: 'Siti Nurhaliza', prodi: 'Ilmu Komunikasi', desa: 'Desa Margaluyu', status: 'Diverifikasi' },
+    { nim: '220101089', name: 'Budi Santoso', prodi: 'Manajemen', desa: 'Desa Sindangasih', status: 'Revisi Berkas' },
     { nim: '220101102', name: 'Dewi Lestari', prodi: 'Kesehatan Masyarakat', desa: 'Desa Sukamaju', status: 'Diterima' },
   ];
 
+  const filteredApplicants = sampleApplicants.filter((item) => {
+    const matchSearch = item.name.toLowerCase().includes(searchTerm.toLowerCase()) || item.nim.includes(searchTerm);
+    const matchStatus = statusFilter === 'all' || item.status === statusFilter;
+    return matchSearch && matchStatus;
+  });
+
   return (
     <div className="container" style={{ padding: '3rem 1.5rem' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2.5rem' }}>
+      {/* Notice Banner */}
+      {backendNotice && (
+        <div style={{
+          background: '#eff6ff',
+          border: '1px solid #bfdbfe',
+          borderRadius: '8px',
+          padding: '0.65rem 1rem',
+          fontSize: '0.85rem',
+          color: '#1d4ed8',
+          marginBottom: '1.5rem',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '8px'
+        }}>
+          <ShieldCheck size={16} />
+          <span>{backendNotice}</span>
+        </div>
+      )}
+
+      {/* Header */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2.5rem', flexWrap: 'wrap', gap: '1rem' }}>
         <div>
-          <span className="badge badge-primary">Portal Admin LPPM</span>
-          <h1 style={{ fontSize: '2rem', fontWeight: 800, marginTop: '0.25rem' }}>
-            Dashboard Verifikasi Pendaftar
+          <span className="badge badge-warning" style={{ background: '#fef3c7', color: '#92400e' }}>
+            Portal Administrator LPPM
+          </span>
+          <h1 style={{ fontSize: '2rem', fontWeight: 800, marginTop: '0.25rem', color: '#0f172a' }}>
+            Dashboard Verifikasi Pendaftar KKN
           </h1>
-          <p style={{ color: '#64748b' }}>Kelola berkas pendaftaran mahasiswa dan kuota desa KKN</p>
+          <p style={{ color: '#64748b', fontSize: '0.9rem' }}>
+            Login sebagai: <strong>{user?.name || 'Administrator LPPM'}</strong> ({user?.email})
+          </p>
         </div>
 
-        <button onClick={handleLogout} className="btn btn-secondary">
-          <LogOut size={16} />
-          <span>Keluar</span>
-        </button>
+        <div style={{ display: 'flex', gap: '0.75rem' }}>
+          <Link to="/" className="btn btn-secondary">
+            <Home size={16} />
+            <span>Halaman Utama</span>
+          </Link>
+          <button onClick={handleLogout} className="btn btn-secondary" style={{ color: '#dc2626' }}>
+            <LogOut size={16} />
+            <span>Keluar</span>
+          </button>
+        </div>
       </div>
 
       {/* Admin Stats */}
@@ -42,7 +81,7 @@ export default function AdminDashboard() {
             <Users size={20} color="#2563eb" />
             <span style={{ fontSize: '0.875rem', color: '#64748b', fontWeight: 600 }}>Total Pendaftar</span>
           </div>
-          <h2 style={{ fontSize: '1.75rem', fontWeight: 800, marginTop: '0.5rem' }}>148 Mahasiswa</h2>
+          <h2 style={{ fontSize: '1.75rem', fontWeight: 800, marginTop: '0.5rem', color: '#0f172a' }}>148 Mahasiswa</h2>
         </div>
 
         <div className="card" style={{ padding: '1.5rem' }}>
@@ -50,7 +89,7 @@ export default function AdminDashboard() {
             <Clock size={20} color="#f59e0b" />
             <span style={{ fontSize: '0.875rem', color: '#64748b', fontWeight: 600 }}>Perlu Verifikasi</span>
           </div>
-          <h2 style={{ fontSize: '1.75rem', fontWeight: 800, marginTop: '0.5rem' }}>32 Berkas</h2>
+          <h2 style={{ fontSize: '1.75rem', fontWeight: 800, marginTop: '0.5rem', color: '#d97706' }}>32 Berkas</h2>
         </div>
 
         <div className="card" style={{ padding: '1.5rem' }}>
@@ -58,7 +97,7 @@ export default function AdminDashboard() {
             <CheckCircle size={20} color="#10b981" />
             <span style={{ fontSize: '0.875rem', color: '#64748b', fontWeight: 600 }}>Telah Lolos</span>
           </div>
-          <h2 style={{ fontSize: '1.75rem', fontWeight: 800, marginTop: '0.5rem' }}>104 Mahasiswa</h2>
+          <h2 style={{ fontSize: '1.75rem', fontWeight: 800, marginTop: '0.5rem', color: '#059669' }}>104 Mahasiswa</h2>
         </div>
 
         <div className="card" style={{ padding: '1.5rem' }}>
@@ -66,20 +105,22 @@ export default function AdminDashboard() {
             <MapPin size={20} color="#06b6d4" />
             <span style={{ fontSize: '0.875rem', color: '#64748b', fontWeight: 600 }}>Lokasi Tersedia</span>
           </div>
-          <h2 style={{ fontSize: '1.75rem', fontWeight: 800, marginTop: '0.5rem' }}>12 Wilayah</h2>
+          <h2 style={{ fontSize: '1.75rem', fontWeight: 800, marginTop: '0.5rem', color: '#0284c7' }}>12 Desa</h2>
         </div>
       </div>
 
       {/* Table Section */}
       <div className="card" style={{ padding: '1.75rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
-          <h3 style={{ fontSize: '1.2rem', fontWeight: 700 }}>Data Antrian Pendaftar Terkini</h3>
-          <div style={{ display: 'flex', gap: '0.75rem' }}>
+          <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#0f172a' }}>Data Antrean Pendaftar Terkini</h3>
+          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
             <div style={{ position: 'relative' }}>
               <Search size={16} color="#94a3b8" style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)' }} />
               <input
                 type="text"
-                placeholder="Cari NIM / Nama..."
+                placeholder="Cari NIM atau Nama..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
                 style={{
                   padding: '0.5rem 0.75rem 0.5rem 2.25rem',
                   borderRadius: '8px',
@@ -89,6 +130,25 @@ export default function AdminDashboard() {
                 }}
               />
             </div>
+
+            <select
+              value={statusFilter}
+              onChange={(e) => setStatusFilter(e.target.value)}
+              style={{
+                padding: '0.5rem 0.75rem',
+                borderRadius: '8px',
+                border: '1px solid #cbd5e1',
+                fontSize: '0.85rem',
+                outline: 'none',
+                background: '#ffffff'
+              }}
+            >
+              <option value="all">Semua Status</option>
+              <option value="Menunggu Verifikasi">Menunggu Verifikasi</option>
+              <option value="Diverifikasi">Diverifikasi</option>
+              <option value="Revisi Berkas">Revisi Berkas</option>
+              <option value="Diterima">Diterima</option>
+            </select>
           </div>
         </div>
 
@@ -104,22 +164,30 @@ export default function AdminDashboard() {
               </tr>
             </thead>
             <tbody>
-              {sampleApplicants.map((item, idx) => (
-                <tr key={idx} style={{ borderBottom: '1px solid #f1f5f9' }}>
-                  <td style={{ padding: '0.85rem 0.75rem', fontWeight: 600 }}>{item.nim}</td>
-                  <td style={{ padding: '0.85rem 0.75rem' }}>{item.name}</td>
-                  <td style={{ padding: '0.85rem 0.75rem', color: '#64748b' }}>{item.prodi}</td>
-                  <td style={{ padding: '0.85rem 0.75rem' }}>{item.desa}</td>
-                  <td style={{ padding: '0.85rem 0.75rem' }}>
-                    <span className={`badge ${
-                      item.status === 'Diterima' ? 'badge-success' :
-                      item.status === 'Diverifikasi' ? 'badge-primary' : 'badge-warning'
-                    }`}>
-                      {item.status}
-                    </span>
+              {filteredApplicants.length > 0 ? (
+                filteredApplicants.map((item, idx) => (
+                  <tr key={idx} style={{ borderBottom: '1px solid #f1f5f9' }}>
+                    <td style={{ padding: '0.85rem 0.75rem', fontWeight: 600 }}>{item.nim}</td>
+                    <td style={{ padding: '0.85rem 0.75rem' }}>{item.name}</td>
+                    <td style={{ padding: '0.85rem 0.75rem', color: '#64748b' }}>{item.prodi}</td>
+                    <td style={{ padding: '0.85rem 0.75rem' }}>{item.desa}</td>
+                    <td style={{ padding: '0.85rem 0.75rem' }}>
+                      <span className={`badge ${
+                        item.status === 'Diterima' ? 'badge-success' :
+                        item.status === 'Diverifikasi' ? 'badge-primary' : 'badge-warning'
+                      }`}>
+                        {item.status}
+                      </span>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan={5} style={{ padding: '2rem', textAlign: 'center', color: '#64748b' }}>
+                    Tidak ada pendaftar yang cocok dengan filter.
                   </td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </div>
