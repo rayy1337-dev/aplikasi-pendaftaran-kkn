@@ -219,3 +219,27 @@ Screenshot beresolusi tinggi di folder `design/screenshots/` dapat langsung dise
 - Diagram Alur Pengguna (User Flow) Subbab 2.1
 - Panduan Design System & Tipografi Subbab 2.2
 - Mockup High-Fidelity & Detail Fitur Subbab 2.3
+
+
+---
+
+## 6. Poster Infografis & Slide Presentasi WBS (Stitch MCP)
+
+Dihasilkan melalui **Stitch MCP Server** terintegrasi pada Proyek ID `8443236148218390349` (Screen ID: `a126c0b0e9e74fa19cd3fdc78e703c75`):
+
+### A. Poster Infografis WBS (Full Board)
+* **File HTML:** [06_wbs_infographic_board.html](06_wbs_infographic_board.html)
+* **Tangkapan Layar:** [06_wbs_infographic_board.png](screenshots/06_wbs_infographic_board.png)
+* **Fitur Utama:**
+  - Hirarki 4 level dekomposisi sistem (Level 0 Proyek Utama, Level 1 Deliverables Utama, Level 2 Sub-deliverables, Level 3 Rincian Pekerjaan/Work Packages).
+  - Kartu contoh paket kerja terperinci (`WP 3.1.3 Wizard Pendaftaran Multi-Step`) dengan komponen output, owner, kriteria selesai, dependensi, estimasi, dan bukti penerimaan.
+  - Kartu Tujuan & Manfaat proyek SIM KKN.
+  - Legenda warna terstandar (*Deep Emerald Green, Royal Slate & Mint, Soft Sky Blue, Pure White*).
+
+### B. Slide Presentasi WBS 16:9 (Executive Widescreen Board)
+* **File HTML:** [07_wbs_presentation_slide.html](07_wbs_presentation_slide.html)
+* **Tangkapan Layar:** [07_wbs_presentation_slide.png](screenshots/07_wbs_presentation_slide.png)
+* **Fitur Utama:**
+  - Format rasio standar slide presentasi 16:9 (`1920x1080`).
+  - Indikator rel penanda tingkatan di sisi kiri (`LEVEL 0`, `LEVEL 1`, `LEVEL 2`, `LEVEL 3`).
+  - 5 Kolom sejajar dengan garis penghubung hirarkis yang rapi dan mudah dipresentasikan saat sidang/evaluasi UTS MPTI.

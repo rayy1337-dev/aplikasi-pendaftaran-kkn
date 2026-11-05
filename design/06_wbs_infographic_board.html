@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WBS Infographic Board - SIM KKN LPPM</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            headline: ['"Space Grotesk"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            emerald: {
+              950: '#00291e',
+              900: '#004532',
+              800: '#065f46',
+              700: '#047857',
+              600: '#059669',
+              500: '#10b981',
+              100: '#d1fae5',
+              50: '#ecfdf5'
+            },
+            slate: {
+              850: '#151e2e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .tree-line-v {
+      position: absolute;
+      width: 2px;
+      background: #cbd5e1;
+    }
+    .badge-glow {
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
+    }
+    .custom-scroll::-webkit-scrollbar {
+      height: 8px;
+      width: 8px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 4px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 font-sans antialiased min-h-screen p-4 sm:p-8 lg:p-10">
+
+  <!-- Main Presentation Canvas Container -->
+  <div class="max-w-[1720px] mx-auto bg-white rounded-3xl shadow-2xl border border-slate-200/80 overflow-hidden">
+    
+    <!-- Top Header Ribbon -->
+    <header class="bg-gradient-to-r from-emerald-950 via-emerald-900 to-slate-900 text-white px-8 py-7 border-b border-emerald-800/40 relative overflow-hidden">
+      <div class="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none"></div>
+      <div class="absolute left-1/3 -bottom-20 w-96 h-96 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none"></div>
+      
+      <div class="relative z-10 flex flex-col xl:flex-row xl:items-center xl:justify-between gap-6">
+        <div class="flex items-start sm:items-center gap-5">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-600 to-emerald-800 p-0.5 shadow-lg shadow-emerald-950/40 flex items-center justify-center shrink-0 border border-emerald-400/30">
+            <div class="w-full h-full bg-emerald-950/80 rounded-[14px] flex items-center justify-center">
+              <i class="fa-solid fa-sitemap text-emerald-400 text-2xl"></i>
+            </div>
+          </div>
+          <div>
+            <div class="flex flex-wrap items-center gap-2 mb-1.5">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                Work Breakdown Structure (WBS)
+              </span>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-white/10 text-slate-200 border border-white/10">
+                Dokumen Dekomposisi Proyek
+              </span>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                Semester Gasal 2026/2027
+              </span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-headline tracking-tight text-white leading-tight">
+              WBS (WORK BREAKDOWN STRUCTURE) - SISTEM INFORMASI PENDAFTARAN KKN (SIM KKN)
+            </h1>
+            <p class="text-slate-300 text-sm sm:text-base font-medium mt-1 flex items-center gap-2 flex-wrap">
+              <span>Tugas Mata Kuliah Manajemen Proyek Teknologi Informasi</span>
+              <span class="text-emerald-400 font-bold">•</span>
+              <span class="text-slate-200">Mahasiswa Semester 5 S1 Informatika</span>
+              <span class="text-emerald-400 font-bold">•</span>
+              <span class="text-emerald-300 font-semibold flex items-center gap-1.5">
+                <i class="fa-solid fa-graduation-cap text-xs"></i> LPPM & Prodi Informatika
+              </span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Academic Team & Project Meta Pill -->
+        <div class="flex items-center gap-3 bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl px-5 py-3.5 self-start xl:self-auto shrink-0 shadow-inner">
+          <div class="flex -space-x-2 overflow-hidden">
+            <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-700 text-white text-xs font-bold ring-2 ring-emerald-900" title="Rayhan - Project Manager">RY</span>
+            <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-blue-700 text-white text-xs font-bold ring-2 ring-emerald-900" title="Virdi - UI/UX & Quality">VR</span>
+            <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-amber-700 text-white text-xs font-bold ring-2 ring-emerald-900" title="Ricko - Backend Engineer">RK</span>
+            <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-purple-700 text-white text-xs font-bold ring-2 ring-emerald-900" title="Feris - Frontend Engineer">FR</span>
+          </div>
+          <div class="text-left border-l border-white/15 pl-3">
+            <p class="text-xs uppercase tracking-wider font-semibold text-emerald-300">Tim Pengembang (4 Mhs)</p>
+            <p class="text-xs text-slate-300 font-medium">Rayhan, Virdi, Ricko, Feris</p>
+          </div>
+          <div class="border-l border-white/15 pl-3 text-right">
+            <span class="text-[11px] block text-slate-400 font-medium">Durasi Proyek</span>
+            <span class="text-sm font-bold text-white font-headline">10 Minggu (CPM)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Level Legend Filter / Navigator -->
+      <div class="mt-6 pt-5 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs font-medium">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="text-slate-400 uppercase tracking-wider text-[11px] font-bold mr-1">Tingkatan Dekomposisi:</span>
+          
+          <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-900/80 border border-emerald-500/50 text-emerald-200">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+            <strong class="font-bold">LEVEL 0:</strong> Proyek Utama
+          </div>
+          
+          <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/90 border border-slate-600 text-slate-200">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+            <strong class="font-bold">LEVEL 1:</strong> Deliverables Utama (5 Pilar)
+          </div>
+
+          <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-950/80 border border-sky-500/40 text-sky-200">
+            <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
+            <strong class="font-bold">LEVEL 2:</strong> Sub-deliverables (11 Modul)
+          </div>
+
+          <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 border border-white/20 text-white">
+            <span class="w-2.5 h-2.5 rounded-full bg-white"></span>
+            <strong class="font-bold">LEVEL 3:</strong> Work Packages (28 Tugas Terukur)
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 text-slate-300">
+          <span class="flex items-center gap-1.5 bg-emerald-500/20 px-3 py-1 rounded-md text-emerald-300 text-xs font-semibold">
+            <i class="fa-solid fa-shield-halved text-xs"></i> 100% Sesuai Scope PMBOK
+          </span>
+          <span class="flex items-center gap-1 text-slate-400">
+            <i class="fa-regular fa-calendar-check text-xs"></i> Target Rilis: Juni 2026
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Canvas Inner Presentation -->
+    <main class="p-6 sm:p-8 lg:p-10 bg-slate-50/70">
+
+      <!-- LEVEL 0: Proyek Utama Banner -->
+      <section class="mb-10">
+        <div class="relative max-w-4xl mx-auto">
+          <!-- Connector line down to Level 1 -->
+          <div class="absolute left-1/2 -bottom-10 w-0.5 h-10 bg-emerald-600 -translate-x-1/2 z-0 hidden lg:block"></div>
+          
+          <div class="bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-900 text-white rounded-2xl p-6 sm:p-7 shadow-xl shadow-emerald-950/15 border-2 border-emerald-600/60 relative z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+              
+              <div class="flex items-center gap-4 text-center md:text-left">
+                <div class="w-16 h-16 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center shrink-0 mx-auto md:mx-0 shadow-inner">
+                  <i class="fa-solid fa-graduation-cap text-3xl text-emerald-300"></i>
+                </div>
+                <div>
+                  <div class="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-emerald-400/20 text-emerald-200 text-xs font-bold tracking-wider uppercase border border-emerald-400/30 mb-1">
+                    <span class="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></span> WBS Level 0 • Root Project
+                  </div>
+                  <h2 class="text-xl sm:text-2xl font-bold font-headline tracking-wide text-white">
+                    PENGEMBANGAN SISTEM INFORMASI PENDAFTARAN KULIAH KERJA NYATA (SIM KKN)
+                  </h2>
+                  <p class="text-emerald-100/90 text-sm mt-1">
+                    Portal terpadu multi-peran pendaftaran, seleksi kuota desa real-time, verifikasi berkas LPPM, dan pembentukan regu mahasiswa berbasis web responsif.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Quick specs badge -->
+              <div class="shrink-0 bg-emerald-950/60 border border-emerald-500/30 rounded-xl px-4 py-3 text-center md:text-right min-w-[210px]">
+                <div class="text-[11px] text-emerald-300 font-semibold uppercase tracking-wider">Metode & Tech Stack</div>
+                <div class="text-sm font-bold text-white mt-0.5">Agile Scrum + Monorepo</div>
+                <div class="text-xs text-slate-300 mt-1 flex items-center justify-center md:justify-end gap-1.5 font-medium">
+                  <span class="bg-emerald-500/20 px-2 py-0.5 rounded text-[11px]">React 19</span>
+                  <span class="bg-emerald-500/20 px-2 py-0.5 rounded text-[11px]">Express.js</span>
+                  <span class="bg-emerald-500/20 px-2 py-0.5 rounded text-[11px]">MySQL</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Connecting Bridge Bar for Level 1 -->
+      <div class="relative max-w-[1580px] mx-auto mb-6 hidden lg:block">
+        <div class="h-0.5 bg-slate-300 w-full relative">
+          <!-- 5 dropping points for columns -->
+          <div class="absolute left-[10%] -top-2 w-4 h-4 rounded-full bg-purple-600 border-2 border-white shadow"></div>
+          <div class="absolute left-[30%] -top-2 w-4 h-4 rounded-full bg-emerald-600 border-2 border-white shadow"></div>
+          <div class="absolute left-[50%] -top-2 w-4 h-4 rounded-full bg-amber-600 border-2 border-white shadow"></div>
+          <div class="absolute left-[70%] -top-2 w-4 h-4 rounded-full bg-sky-600 border-2 border-white shadow"></div>
+          <div class="absolute left-[90%] -top-2 w-4 h-4 rounded-full bg-teal-600 border-2 border-white shadow"></div>
+        </div>
+      </div>
+
+      <!-- LEVEL 1, 2, 3: 5 MAJOR COLUMNS GRID -->
+      <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 xl:gap-7 items-start">
+
+        <!-- ==========================================
+             COLUMN 1: ANALISIS DAN PERENCANAAN
+             ========================================== -->
+        <div class="flex flex-col gap-4 bg-purple-50/40 rounded-2xl p-4 border border-purple-200/80 shadow-sm transition hover:shadow-md">
+          
+          <!-- Level 1 Header -->
+          <div class="bg-gradient-to-br from-purple-700 to-indigo-900 text-white rounded-xl p-4 shadow-md border-b-4 border-purple-500">
+            <div class="flex items-center justify-between mb-2">
+              <span class="px-2 py-0.5 rounded text-[11px] font-extrabold uppercase bg-white/20 tracking-wider">
+                LEVEL 1.0
+              </span>
+              <span class="text-xs bg-purple-500/30 px-2 py-0.5 rounded text-purple-200 font-semibold">
+                Minggu 1 - 2
+              </span>
+            </div>
+            <h3 class="text-lg font-bold font-headline leading-snug flex items-center gap-2">
+              <i class="fa-solid fa-magnifying-glass-chart text-purple-300"></i>
+              1. Analisis & Perencanaan
+            </h3>
+            <p class="text-xs text-purple-100/80 mt-1 font-medium">
+              Inisiasi, perumusan batasan masalah, observasi LPPM, dan alokasi timeline.
+            </p>
+          </div>
+
+          <!-- Level 2 Sub-deliverable 1.1 -->
+          <div class="flex flex-col gap-3">
+            <div class="bg-gradient-to-r from-sky-50 to-blue-50 border-l-4 border-sky-600 rounded-lg p-3 shadow-xs">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-sky-800 uppercase tracking-wider">LEVEL 2 • SUB-DELIVERABLE</span>
+                <span class="text-[11px] font-bold px-1.5 py-0.2 rounded bg-sky-200 text-sky-900">1.1</span>
+              </div>
+              <h4 class="text-sm font-bold text-slate-900 mt-0.5">1.1 Analisis Kebutuhan</h4>
+              <p class="text-[11px] text-slate-500">Eksplorasi proses bisnis eksisting & kebutuhan sistem.</p>
+            </div>
+
+            <!-- Level 3 Work Packages -->
+            <div class="space-y-2.5 pl-2 border-l-2 border-dashed border-sky-300">
+              <!-- WP 1.1.1 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-purple-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-purple-100 text-purple-800">WP 1.1.1</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 3 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Identifikasi Kebutuhan LPPM & Mahasiswa
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  Wawancara pengelola KKN mengenai kendala manual pendaftaran & kuota bentrok.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Rayhan</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> Notulensi Kebutuhan
+                  </span>
+                </div>
+              </div>
+
+              <!-- WP 1.1.2 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-purple-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-purple-100 text-purple-800">WP 1.1.2</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 4 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Penyusunan Dokumen SRS & Kebutuhan Fungsional
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  Spesifikasi software: 4 peran (Mhs, DPL, Admin, LPPM), validasi SKS, dan matriks hak akses.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Rayhan & Virdi</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> Dokumen SRS v1.0
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Level 2 Sub-deliverable 1.2 -->
+            <div class="bg-gradient-to-r from-sky-50 to-blue-50 border-l-4 border-sky-600 rounded-lg p-3 shadow-xs mt-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-sky-800 uppercase tracking-wider">LEVEL 2 • SUB-DELIVERABLE</span>
+                <span class="text-[11px] font-bold px-1.5 py-0.2 rounded bg-sky-200 text-sky-900">1.2</span>
+              </div>
+              <h4 class="text-sm font-bold text-slate-900 mt-0.5">1.2 Perencanaan Proyek</h4>
+              <p class="text-[11px] text-slate-500">Tata kelola jadwal, jalur kritis, dan resource matrix.</p>
+            </div>
+
+            <!-- Level 3 Work Packages for 1.2 -->
+            <div class="space-y-2.5 pl-2 border-l-2 border-dashed border-sky-300">
+              <!-- WP 1.2.1 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-purple-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-purple-100 text-purple-800">WP 1.2.1</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 3 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Penyusunan Project Charter & Scope Statement
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  Penetapan sasaran UTS MPTI, batasan tanpa integrasi payment gateway berbayar, dan resiko.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Rayhan</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> Signed Charter
+                  </span>
+                </div>
+              </div>
+
+              <!-- WP 1.2.2 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-purple-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-purple-100 text-purple-800">WP 1.2.2</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 3 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Penjadwalan WBS & Jalur Kritis (CPM)
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  Menentukan gantt chart 10 minggu, dependensi modul auth-desa-berkas, dan milestone evaluasi.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Rayhan</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> CPM & Gantt Chart
+                  </span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ==========================================
+             COLUMN 2: DESAIN SISTEM & UI/UX
+             ========================================== -->
+        <div class="flex flex-col gap-4 bg-emerald-50/40 rounded-2xl p-4 border border-emerald-200/80 shadow-sm transition hover:shadow-md">
+          
+          <!-- Level 1 Header -->
+          <div class="bg-gradient-to-br from-emerald-800 to-teal-950 text-white rounded-xl p-4 shadow-md border-b-4 border-emerald-500">
+            <div class="flex items-center justify-between mb-2">
+              <span class="px-2 py-0.5 rounded text-[11px] font-extrabold uppercase bg-white/20 tracking-wider">
+                LEVEL 1.0
+              </span>
+              <span class="text-xs bg-emerald-500/30 px-2 py-0.5 rounded text-emerald-200 font-semibold">
+                Minggu 2 - 4
+              </span>
+            </div>
+            <h3 class="text-lg font-bold font-headline leading-snug flex items-center gap-2">
+              <i class="fa-solid fa-compass-drafting text-emerald-300"></i>
+              2. Desain Sistem & UI/UX
+            </h3>
+            <p class="text-xs text-emerald-100/80 mt-1 font-medium">
+              Wireframing, prototipe antarmuka, arsitektur data ERD & perancangan transaksi.
+            </p>
+          </div>
+
+          <!-- Level 2 Sub-deliverable 2.1 -->
+          <div class="flex flex-col gap-3">
+            <div class="bg-gradient-to-r from-sky-50 to-blue-50 border-l-4 border-sky-600 rounded-lg p-3 shadow-xs">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-sky-800 uppercase tracking-wider">LEVEL 2 • SUB-DELIVERABLE</span>
+                <span class="text-[11px] font-bold px-1.5 py-0.2 rounded bg-sky-200 text-sky-900">2.1</span>
+              </div>
+              <h4 class="text-sm font-bold text-slate-900 mt-0.5">2.1 Desain Antarmuka (UI/UX)</h4>
+              <p class="text-[11px] text-slate-500">Design system akademis, portal publik & konsol LPPM.</p>
+            </div>
+
+            <!-- Level 3 Work Packages -->
+            <div class="space-y-2.5 pl-2 border-l-2 border-dashed border-sky-300">
+              <!-- WP 2.1.1 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-emerald-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800">WP 2.1.1</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 4 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Desain Landing Page & Portal Informasi
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  Katalog desa, timeline linimasa pendaftaran, widget validasi cepat SKS, dan FAQ interaktif.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Virdi</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> Figma High-Fi
+                  </span>
+                </div>
+              </div>
+
+              <!-- WP 2.1.2 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-emerald-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800">WP 2.1.2</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 5 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Desain Wizard Pendaftaran & Upload Berkas
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  Alur 4 tahap: Data Akademik SIAKAD, Pemilihan Lokasi & Kuota, Upload PDF Surat & Finalisasi.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Virdi</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> Prototype Wizard
+                  </span>
+                </div>
+              </div>
+
+              <!-- WP 2.1.3 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-emerald-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800">WP 2.1.3</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 4 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Desain Dashboard Admin & Verifikasi
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  Tabel verifikasi pelamar, preview PDF terintegrasi, modal catatan revisi, dan status badge.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Virdi</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> UI Admin Console
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Level 2 Sub-deliverable 2.2 -->
+            <div class="bg-gradient-to-r from-sky-50 to-blue-50 border-l-4 border-sky-600 rounded-lg p-3 shadow-xs mt-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-sky-800 uppercase tracking-wider">LEVEL 2 • SUB-DELIVERABLE</span>
+                <span class="text-[11px] font-bold px-1.5 py-0.2 rounded bg-sky-200 text-sky-900">2.2</span>
+              </div>
+              <h4 class="text-sm font-bold text-slate-900 mt-0.5">2.2 Desain Database & Arsitektur</h4>
+              <p class="text-[11px] text-slate-500">Skema relasional MySQL & arsitektur RESTful API.</p>
+            </div>
+
+            <!-- Level 3 Work Packages for 2.2 -->
+            <div class="space-y-2.5 pl-2 border-l-2 border-dashed border-sky-300">
+              <!-- WP 2.2.1 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-emerald-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800">WP 2.2.1</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 3 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Perancangan Skema ERD MySQL (6 Tabel)
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  Tabel: users, mahasiswa_profiles, desa_kkn, pendaftaran, berkas_dokumen, log_verifikasi.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Ricko</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> Diagram ERD Relasional
+                  </span>
+                </div>
+              </div>
+
+              <!-- WP 2.2.2 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-emerald-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800">WP 2.2.2</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 3 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Desain Alur Transaksi Kuota ACID
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  Mekanisme atomic row-level lock (SELECT FOR UPDATE) untuk mencegah race condition kuota desa.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Ricko</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> Desain Logic Transaksi
+                  </span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ==========================================
+             COLUMN 3: PENGEMBANGAN SISTEM (FULLSTACK)
+             ========================================== -->
+        <div class="flex flex-col gap-4 bg-amber-50/40 rounded-2xl p-4 border border-amber-200/80 shadow-sm transition hover:shadow-md">
+          
+          <!-- Level 1 Header -->
+          <div class="bg-gradient-to-br from-amber-700 to-orange-950 text-white rounded-xl p-4 shadow-md border-b-4 border-amber-500">
+            <div class="flex items-center justify-between mb-2">
+              <span class="px-2 py-0.5 rounded text-[11px] font-extrabold uppercase bg-white/20 tracking-wider">
+                LEVEL 1.0
+              </span>
+              <span class="text-xs bg-amber-500/30 px-2 py-0.5 rounded text-amber-200 font-semibold">
+                Minggu 4 - 8
+              </span>
+            </div>
+            <h3 class="text-lg font-bold font-headline leading-snug flex items-center gap-2">
+              <i class="fa-solid fa-code text-amber-300"></i>
+              3. Pengembangan Sistem
+            </h3>
+            <p class="text-xs text-amber-100/80 mt-1 font-medium">
+              Coding frontend React 19, backend REST Express.js, & integrasi data relasional.
+            </p>
+          </div>
+
+          <!-- Level 2 Sub-deliverable 3.1 -->
+          <div class="flex flex-col gap-3">
+            <div class="bg-gradient-to-r from-sky-50 to-blue-50 border-l-4 border-sky-600 rounded-lg p-3 shadow-xs">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-sky-800 uppercase tracking-wider">LEVEL 2 • SUB-DELIVERABLE</span>
+                <span class="text-[11px] font-bold px-1.5 py-0.2 rounded bg-sky-200 text-sky-900">3.1</span>
+              </div>
+              <h4 class="text-sm font-bold text-slate-900 mt-0.5">3.1 Pengembangan Frontend React</h4>
+              <p class="text-[11px] text-slate-500">Implementasi antarmuka klien & state management.</p>
+            </div>
+
+            <!-- Level 3 Work Packages for 3.1 -->
+            <div class="space-y-2.5 pl-2 border-l-2 border-dashed border-sky-300">
+              
+              <!-- WP 3.1.1 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-amber-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-amber-100 text-amber-800">WP 3.1.1</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 2 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Setup Vite & Routing React 19
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  Inisiasi Tailwind CSS, React Router v6, proteksi rute berbasis JWT & role guards.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Feris</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> Boilerplate Siap
+                  </span>
+                </div>
+              </div>
+
+              <!-- WP 3.1.2 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-amber-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-amber-100 text-amber-800">WP 3.1.2</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 3 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Slicing Auth (Login & Register)
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  Formulir NIM/SSO, validasi form react-hook-form + zod, dan token storage management.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Feris</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> Modul Auth Klien
+                  </span>
+                </div>
+              </div>
+
+              <!-- WP 3.1.3 (Highlighted Target) -->
+              <div class="bg-emerald-50/80 rounded-xl p-3.5 border-2 border-emerald-500 shadow-sm relative">
+                <div class="absolute -top-2 right-3 bg-emerald-600 text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                  Paket Utama
+                </div>
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-emerald-600 text-white">WP 3.1.3</span>
+                  <span class="text-[10px] text-emerald-800 font-bold">Durasi: 4 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-emerald-950 leading-snug">
+                  Wizard Pendaftaran Multi-Step
+                </h5>
+                <p class="text-[11px] text-slate-700 mt-1">
+                  4 langkah interaktif: data diri, kartu pilihan kuota desa live, upload dropzone PDF, & modal konfirmasi.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-emerald-200 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-600">PIC: <strong class="text-slate-900 font-bold">Feris</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-700 font-bold">
+                    <i class="fa-solid fa-star text-[9px]"></i> Selesai & Teruji
+                  </span>
+                </div>
+              </div>
+
+              <!-- WP 3.1.4 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-amber-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-amber-100 text-amber-800">WP 3.1.4</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 3 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Dashboard Mahasiswa Real-Time
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  Tracking status berkas lolos/revisi, detail kelompok 12 Desa Cibodas, unduh surat tugas.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Feris</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> UI Dashboard Mhs
+                  </span>
+                </div>
+              </div>
+
+              <!-- WP 3.1.5 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-amber-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-amber-100 text-amber-800">WP 3.1.5</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 4 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Konsol Admin Verifikasi & Aksi
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  Filter peserta, drawer pratinjau dokumen, tombol Terima/Revisi/Tolak + notifikasi feedback.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Feris</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> UI Admin LPPM
+                  </span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Level 2 Sub-deliverable 3.2 -->
+            <div class="bg-gradient-to-r from-sky-50 to-blue-50 border-l-4 border-sky-600 rounded-lg p-3 shadow-xs mt-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-sky-800 uppercase tracking-wider">LEVEL 2 • SUB-DELIVERABLE</span>
+                <span class="text-[11px] font-bold px-1.5 py-0.2 rounded bg-sky-200 text-sky-900">3.2</span>
+              </div>
+              <h4 class="text-sm font-bold text-slate-900 mt-0.5">3.2 Backend REST API (Node/Express)</h4>
+              <p class="text-[11px] text-slate-500">Logika bisnis, transaksi kuota, auth & penanganan berkas.</p>
+            </div>
+
+            <!-- Level 3 Work Packages for 3.2 -->
+            <div class="space-y-2.5 pl-2 border-l-2 border-dashed border-sky-300">
+              
+              <!-- WP 3.2.1 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-amber-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-amber-100 text-amber-800">WP 3.2.1</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 2 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Setup Express.js & MySQL Pool
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  Konfigurasi middleware CORS, helmet, morgan logger, & connection pooling mysql2.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Ricko</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> Server Running
+                  </span>
+                </div>
+              </div>
+
+              <!-- WP 3.2.2 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-amber-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-amber-100 text-amber-800">WP 3.2.2</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 3 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Endpoint Auth JWT & Bcrypt
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  Sign in, sign up, hashing password bcrypt, dan middleware verifikasi Bearer token.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Ricko</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> Auth API Complete
+                  </span>
+                </div>
+              </div>
+
+              <!-- WP 3.2.3 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-amber-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-amber-100 text-amber-800">WP 3.2.3</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 4 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Endpoint Lokasi & Kuota Atomik
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  GET desa list & POST /api/kkn/daftar dengan transaksi database BEGIN-COMMIT rollback.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Ricko</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> Atomic Quota API
+                  </span>
+                </div>
+              </div>
+
+              <!-- WP 3.2.4 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-amber-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-amber-100 text-amber-800">WP 3.2.4</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 3 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Endpoint Upload Berkas Multer
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  Filter mime-type application/pdf, limit 2MB, penamaan hash UUID, simpan referensi ke DB.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Ricko</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> Multer Secure Pipe
+                  </span>
+                </div>
+              </div>
+
+              <!-- WP 3.2.5 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-amber-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-amber-100 text-amber-800">WP 3.2.5</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 3 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Endpoint Verifikasi Admin LPPM
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  PATCH /api/admin/verifikasi/:id, update status kelolosan, simpan log audit catatan verifikator.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Ricko</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> Admin Management API
+                  </span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ==========================================
+             COLUMN 4: PENGUJIAN DAN VALIDASI (QA)
+             ========================================== -->
+        <div class="flex flex-col gap-4 bg-sky-50/40 rounded-2xl p-4 border border-sky-200/80 shadow-sm transition hover:shadow-md">
+          
+          <!-- Level 1 Header -->
+          <div class="bg-gradient-to-br from-sky-700 to-blue-950 text-white rounded-xl p-4 shadow-md border-b-4 border-sky-500">
+            <div class="flex items-center justify-between mb-2">
+              <span class="px-2 py-0.5 rounded text-[11px] font-extrabold uppercase bg-white/20 tracking-wider">
+                LEVEL 1.0
+              </span>
+              <span class="text-xs bg-sky-500/30 px-2 py-0.5 rounded text-sky-200 font-semibold">
+                Minggu 7 - 9
+              </span>
+            </div>
+            <h3 class="text-lg font-bold font-headline leading-snug flex items-center gap-2">
+              <i class="fa-solid fa-vial-circle-check text-sky-300"></i>
+              4. Pengujian & Validasi
+            </h3>
+            <p class="text-xs text-sky-100/80 mt-1 font-medium">
+              Uji fungsionalitas, edge cases kuota, validasi integrasi E2E, dan perbaikan bug.
+            </p>
+          </div>
+
+          <!-- Level 2 Sub-deliverable 4.1 -->
+          <div class="flex flex-col gap-3">
+            <div class="bg-gradient-to-r from-sky-50 to-blue-50 border-l-4 border-sky-600 rounded-lg p-3 shadow-xs">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-sky-800 uppercase tracking-wider">LEVEL 2 • SUB-DELIVERABLE</span>
+                <span class="text-[11px] font-bold px-1.5 py-0.2 rounded bg-sky-200 text-sky-900">4.1</span>
+              </div>
+              <h4 class="text-sm font-bold text-slate-900 mt-0.5">4.1 Pengujian Fungsional</h4>
+              <p class="text-[11px] text-slate-500">Pengujian unit modul, validasi input & batasan berkas.</p>
+            </div>
+
+            <!-- Level 3 Work Packages for 4.1 -->
+            <div class="space-y-2.5 pl-2 border-l-2 border-dashed border-sky-300">
+              <!-- WP 4.1.1 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-sky-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-sky-100 text-sky-800">WP 4.1.1</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 2 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Pengujian Auth & Hak Akses
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  Uji token expired, proteksi URL admin dari akses mahasiswa, & validasi format NIM/Email.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Virdi</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> 100% Test Pass
+                  </span>
+                </div>
+              </div>
+
+              <!-- WP 4.1.2 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-sky-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-sky-100 text-sky-800">WP 4.1.2</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 3 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Pengujian Kuota Desa & Transaksi
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  Simulasi 20 pendaftar simultan pada sisa 1 kursi (Desa Margalaksana) mencegah overbooking.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Ricko</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> Concurrency Passed
+                  </span>
+                </div>
+              </div>
+
+              <!-- WP 4.1.3 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-sky-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-sky-100 text-sky-800">WP 4.1.3</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 2 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Pengujian Upload & Validasi Berkas
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  Uji upload ekstensi .exe/.jpg (harus ditolak), uji file >2MB, dan preview PDF render.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Virdi</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> File Validation OK
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Level 2 Sub-deliverable 4.2 -->
+            <div class="bg-gradient-to-r from-sky-50 to-blue-50 border-l-4 border-sky-600 rounded-lg p-3 shadow-xs mt-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-sky-800 uppercase tracking-wider">LEVEL 2 • SUB-DELIVERABLE</span>
+                <span class="text-[11px] font-bold px-1.5 py-0.2 rounded bg-sky-200 text-sky-900">4.2</span>
+              </div>
+              <h4 class="text-sm font-bold text-slate-900 mt-0.5">4.2 Pengujian Integrasi E2E</h4>
+              <p class="text-[11px] text-slate-500">Alur utuh pendaftaran mahasiswa hingga putusan admin.</p>
+            </div>
+
+            <!-- Level 3 Work Packages for 4.2 -->
+            <div class="space-y-2.5 pl-2 border-l-2 border-dashed border-sky-300">
+              <!-- WP 4.2.1 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-sky-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-sky-100 text-sky-800">WP 4.2.1</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 3 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Validasi Alur Mahasiswa ke Admin
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  Skenario lengkap: login -> pilih desa -> upload berkas -> admin review -> status update ke dashboard mhs.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Rayhan & Virdi</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> E2E Matrix Signed
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Level 2 Sub-deliverable 4.3 -->
+            <div class="bg-gradient-to-r from-sky-50 to-blue-50 border-l-4 border-sky-600 rounded-lg p-3 shadow-xs mt-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-sky-800 uppercase tracking-wider">LEVEL 2 • SUB-DELIVERABLE</span>
+                <span class="text-[11px] font-bold px-1.5 py-0.2 rounded bg-sky-200 text-sky-900">4.3</span>
+              </div>
+              <h4 class="text-sm font-bold text-slate-900 mt-0.5">4.3 Perbaikan Sistem (Bug Fixing)</h4>
+              <p class="text-[11px] text-slate-500">Penanganan anomali teknis dan isu konektivitas jaringan.</p>
+            </div>
+
+            <!-- Level 3 Work Packages for 4.3 -->
+            <div class="space-y-2.5 pl-2 border-l-2 border-dashed border-sky-300">
+              <!-- WP 4.3.1 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-sky-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-sky-100 text-sky-800">WP 4.3.1</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 2 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Resolusi Port 5000 & CORS Localhost
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  Penanganan konflik port MacOS AirPlay (5000) dialihkan ke 5001 dan whitelist origin frontend.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Ricko</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> Fixed & Resolved
+                  </span>
+                </div>
+              </div>
+
+              <!-- WP 4.3.2 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-sky-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-sky-100 text-sky-800">WP 4.3.2</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 1 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Perbaikan Scope Bug totalSks
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  Perbaikan type casting integer totalSks saat validasi syarat minimal 100 SKS pada controller.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Feris & Ricko</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> Bug Closes
+                  </span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ==========================================
+             COLUMN 5: IMPLEMENTASI DAN DOKUMENTASI
+             ========================================== -->
+        <div class="flex flex-col gap-4 bg-teal-50/40 rounded-2xl p-4 border border-teal-200/80 shadow-sm transition hover:shadow-md">
+          
+          <!-- Level 1 Header -->
+          <div class="bg-gradient-to-br from-teal-800 to-slate-900 text-white rounded-xl p-4 shadow-md border-b-4 border-teal-500">
+            <div class="flex items-center justify-between mb-2">
+              <span class="px-2 py-0.5 rounded text-[11px] font-extrabold uppercase bg-white/20 tracking-wider">
+                LEVEL 1.0
+              </span>
+              <span class="text-xs bg-teal-500/30 px-2 py-0.5 rounded text-teal-200 font-semibold">
+                Minggu 9 - 10
+              </span>
+            </div>
+            <h3 class="text-lg font-bold font-headline leading-snug flex items-center gap-2">
+              <i class="fa-solid fa-box-archive text-teal-300"></i>
+              5. Implementasi & Laporan
+            </h3>
+            <p class="text-xs text-teal-100/80 mt-1 font-medium">
+              Integrasi repositori, migrasi database seeder, dokumentasi API & makalah akademik.
+            </p>
+          </div>
+
+          <!-- Level 2 Sub-deliverable 5.1 -->
+          <div class="flex flex-col gap-3">
+            <div class="bg-gradient-to-r from-sky-50 to-blue-50 border-l-4 border-sky-600 rounded-lg p-3 shadow-xs">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-sky-800 uppercase tracking-wider">LEVEL 2 • SUB-DELIVERABLE</span>
+                <span class="text-[11px] font-bold px-1.5 py-0.2 rounded bg-sky-200 text-sky-900">5.1</span>
+              </div>
+              <h4 class="text-sm font-bold text-slate-900 mt-0.5">5.1 Implementasi Sistem (Monorepo)</h4>
+              <p class="text-[11px] text-slate-500">Staging deployment & otomatisasi database development.</p>
+            </div>
+
+            <!-- Level 3 Work Packages for 5.1 -->
+            <div class="space-y-2.5 pl-2 border-l-2 border-dashed border-sky-300">
+              <!-- WP 5.1.1 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-teal-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-teal-100 text-teal-800">WP 5.1.1</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 3 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Konsolidasi Monorepo Staging
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  Struktur direktori client/ & server/, skrip concurrent npm run dev, dan panduan environment .env.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Ricko & Feris</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> GitHub Repo Clean
+                  </span>
+                </div>
+              </div>
+
+              <!-- WP 5.1.2 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-teal-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-teal-100 text-teal-800">WP 5.1.2</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 2 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Skrip Seeder Database Otomatis
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  Populasi otomatis 45 desa binaan, akun simulasi (Rayhan, Virdi, Ricko, Feris), dan kuota acak.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Ricko</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> npm run seed OK
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Level 2 Sub-deliverable 5.2 -->
+            <div class="bg-gradient-to-r from-sky-50 to-blue-50 border-l-4 border-sky-600 rounded-lg p-3 shadow-xs mt-2">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-bold text-sky-800 uppercase tracking-wider">LEVEL 2 • SUB-DELIVERABLE</span>
+                <span class="text-[11px] font-bold px-1.5 py-0.2 rounded bg-sky-200 text-sky-900">5.2</span>
+              </div>
+              <h4 class="text-sm font-bold text-slate-900 mt-0.5">5.2 Dokumentasi & Pelaporan</h4>
+              <p class="text-[11px] text-slate-500">Artefak akademik luaran mata kuliah Manajemen Proyek TI.</p>
+            </div>
+
+            <!-- Level 3 Work Packages for 5.2 -->
+            <div class="space-y-2.5 pl-2 border-l-2 border-dashed border-sky-300">
+              <!-- WP 5.2.1 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-teal-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-teal-100 text-teal-800">WP 5.2.1</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 3 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Postman API Collection & Docs
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  Ekspor koleksi 14 endpoint lengkap dengan response payload contoh 200, 400, 401, dan 409 Conflict.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Ricko</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> Postman v2.1 Ready
+                  </span>
+                </div>
+              </div>
+
+              <!-- WP 5.2.2 -->
+              <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm hover:border-teal-300 hover:shadow transition">
+                <div class="flex items-center justify-between gap-1 mb-1">
+                  <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-teal-100 text-teal-800">WP 5.2.2</span>
+                  <span class="text-[10px] text-slate-400 font-semibold">Durasi: 5 Hari</span>
+                </div>
+                <h5 class="text-xs font-bold text-slate-800 leading-snug">
+                  Makalah UTS MPTI & Slide Presentasi
+                </h5>
+                <p class="text-[11px] text-slate-600 mt-1">
+                  Penyusunan laporan bab 1-5, diagram WBS, analisa CPM & kurva S, serta deck presentasi pengujian sistem.
+                </p>
+                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <span class="text-slate-500">PIC: <strong class="text-slate-700 font-semibold">Rayhan & Tim</strong></span>
+                  <span class="inline-flex items-center gap-1 text-emerald-600 font-semibold">
+                    <i class="fa-solid fa-circle-check text-[9px]"></i> Makalah Final PDF
+                  </span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+      <!-- DETAIL KARTU PAKET KERJA & TUJUAN / MANFAAT PROYEK -->
+      <section class="mt-12 pt-8 border-t border-slate-200">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          
+          <!-- Card Contoh Paket Kerja (Detailed Work Package Card) -->
+          <div class="lg:col-span-6 bg-gradient-to-br from-white to-emerald-50/50 rounded-2xl p-6 border-2 border-emerald-500/60 shadow-lg relative overflow-hidden">
+            <div class="absolute -right-8 -bottom-8 w-44 h-44 rounded-full bg-emerald-500/10 pointer-events-none blur-xl"></div>
+            
+            <div class="flex items-center justify-between gap-3 mb-4">
+              <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-sm shadow">
+                  <i class="fa-solid fa-id-card-clip"></i>
+                </div>
+                <div>
+                  <span class="text-[11px] font-bold text-emerald-700 uppercase tracking-wider block">WBS Dictionary Sample</span>
+                  <h4 class="text-base font-extrabold text-slate-900 font-headline">CONTOH KARTU PAKET KERJA (WORK PACKAGE)</h4>
+                </div>
+              </div>
+              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">
+                Kode: 3.1.3
+              </span>
+            </div>
+
+            <!-- Card Body Table / Spec -->
+            <div class="bg-white rounded-xl p-4 border border-emerald-200 shadow-xs space-y-3">
+              <div class="flex items-start justify-between border-b border-slate-100 pb-2.5">
+                <span class="text-xs text-slate-500 font-semibold w-1/3">Nama Paket Kerja:</span>
+                <span class="text-xs font-bold text-slate-900 w-2/3 text-right">3.1.3 Wizard Pendaftaran Multi-Step</span>
+              </div>
+
+              <div class="flex items-start justify-between border-b border-slate-100 pb-2.5">
+                <span class="text-xs text-slate-500 font-semibold w-1/3">Keluaran (Deliverable):</span>
+                <span class="text-xs font-medium text-slate-800 w-2/3 text-right">
+                  Komponen formulir interaktif 4-tahap (Data Akademik, Pilih Desa, Upload Berkas PDF, & Ringkasan Validasi).
+                </span>
+              </div>
+
+              <div class="flex items-start justify-between border-b border-slate-100 pb-2.5">
+                <span class="text-xs text-slate-500 font-semibold w-1/3">Pemilik Paket (PIC):</span>
+                <span class="text-xs font-bold text-emerald-700 w-2/3 text-right">
+                  <i class="fa-solid fa-user-check text-xs mr-1"></i> Feris (Frontend Engineer)
+                </span>
+              </div>
+
+              <div class="flex items-start justify-between border-b border-slate-100 pb-2.5">
+                <span class="text-xs text-slate-500 font-semibold w-1/3">Kriteria Selesai (DoD):</span>
+                <span class="text-xs font-medium text-slate-800 w-2/3 text-right">
+                  Semua form tervalidasi skema Zod, kuota desa berkurang secara atomik di database, file terunggah aman.
+                </span>
+              </div>
+
+              <div class="flex items-start justify-between border-b border-slate-100 pb-2.5">
+                <span class="text-xs text-slate-500 font-semibold w-1/3">Ketergantungan (Dep):</span>
+                <span class="text-xs font-medium text-slate-800 w-2/3 text-right">
+                  Figma Desain Virdi (2.1.2) & Endpoint API Ricko (3.2.3, 3.2.4).
+                </span>
+              </div>
+
+              <div class="flex items-start justify-between pt-0.5">
+                <span class="text-xs text-slate-500 font-semibold w-1/3">Estimasi & Bukti:</span>
+                <div class="text-xs font-semibold text-slate-800 w-2/3 text-right flex items-center justify-end gap-2">
+                  <span class="bg-amber-100 text-amber-900 px-2 py-0.5 rounded font-bold">3 Hari Kerja</span>
+                  <span class="text-slate-400">|</span>
+                  <span class="text-emerald-700">Screenshot UI + Data Tersimpan DB</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 flex items-center gap-2 text-xs text-slate-600 bg-emerald-50 px-3.5 py-2.5 rounded-xl border border-emerald-200">
+              <i class="fa-solid fa-circle-info text-emerald-600 text-sm"></i>
+              <span>Setiap paket kerja memiliki PIC spesifik untuk memastikan akuntabilitas tugas individu mahasiswa.</span>
+            </div>
+          </div>
+
+          <!-- Tujuan & Manfaat Section -->
+          <div class="lg:col-span-6 flex flex-col justify-between gap-4">
+            
+            <!-- TUJUAN Card -->
+            <div class="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm relative overflow-hidden flex-1">
+              <div class="flex items-start gap-4">
+                <div class="w-11 h-11 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center text-lg shrink-0 font-bold shadow-xs">
+                  <i class="fa-solid fa-bullseye"></i>
+                </div>
+                <div>
+                  <span class="text-[11px] font-bold text-blue-700 uppercase tracking-wider block">Project Objectives</span>
+                  <h4 class="text-base font-extrabold text-slate-900 font-headline mt-0.5">TUJUAN DEKOMPOSISI WBS</h4>
+                  <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                    Memastikan seluruh lingkup pengembangan sistem informasi pendaftaran KKN terurai jelas, terstruktur hierarkis, tidak ada pekerjaan yang terlewat (100% Rule), dan selesai tepat waktu sesuai timeline jalur kritis (Critical Path Method) 10 minggu perkuliahan.
+                  </p>
+                  <div class="mt-3 flex flex-wrap gap-2 text-[11px] font-semibold">
+                    <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Aturan 100% Scope</span>
+                    <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Manajemen Resiko Mutu</span>
+                    <span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md">Sinkronisasi Capstone Project</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- MANFAAT Card -->
+            <div class="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm relative overflow-hidden flex-1">
+              <div class="flex items-start gap-4">
+                <div class="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center text-lg shrink-0 font-bold shadow-xs">
+                  <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <div>
+                  <span class="text-[11px] font-bold text-emerald-700 uppercase tracking-wider block">Project Benefits</span>
+                  <h4 class="text-base font-extrabold text-slate-900 font-headline mt-0.5">MANFAAT IMPLEMENTASI WBS</h4>
+                  <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                    Mempermudah pembagian peran antar anggota tim mahasiswa (Rayhan sebagai PM, Virdi sebagai UI/UX, Ricko sebagai Backend, Feris sebagai Frontend), estimasi durasi dan biaya yang realistis, pemantauan progress mingguan secara terukur, serta menjamin mutu sistem siap UAT bagi pihak LPPM.
+                  </p>
+                  <div class="mt-3 flex flex-wrap gap-2 text-[11px] font-semibold">
+                    <span class="bg-emerald-50 text-emerald-800 px-2.5 py-1 rounded-md border border-emerald-200">Alokasi Beban Seimbang</span>
+                    <span class="bg-emerald-50 text-emerald-800 px-2.5 py-1 rounded-md border border-emerald-200">Tracking Evaluasi Dosen</span>
+                    <span class="bg-emerald-50 text-emerald-800 px-2.5 py-1 rounded-md border border-emerald-200">Kesiapan UAT LPPM</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Academic Summary Matrix & Metrics -->
+      <section class="mt-8 bg-slate-900 text-white rounded-2xl p-6 sm:p-7 border border-slate-800 shadow-xl">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-slate-800">
+          
+          <div class="pt-3 md:pt-0">
+            <span class="text-slate-400 text-xs font-semibold uppercase tracking-wider block">Level Dekomposisi</span>
+            <span class="text-3xl font-extrabold text-emerald-400 font-headline mt-1 block">4 Level</span>
+            <span class="text-[11px] text-slate-400">Level 0 hingga Level 3</span>
+          </div>
+
+          <div class="pt-3 md:pt-0 md:pl-4">
+            <span class="text-slate-400 text-xs font-semibold uppercase tracking-wider block">Deliverables Utama (L1)</span>
+            <span class="text-3xl font-extrabold text-white font-headline mt-1 block">5 Pilar</span>
+            <span class="text-[11px] text-slate-400">Analisis, UI/UX, Dev, QA, Deploy</span>
+          </div>
+
+          <div class="pt-3 md:pt-0 md:pl-4">
+            <span class="text-slate-400 text-xs font-semibold uppercase tracking-wider block">Sub-Deliverables (L2)</span>
+            <span class="text-3xl font-extrabold text-sky-400 font-headline mt-1 block">11 Modul</span>
+            <span class="text-[11px] text-slate-400">Komponen sistem terintegrasi</span>
+          </div>
+
+          <div class="pt-3 md:pt-0 md:pl-4">
+            <span class="text-slate-400 text-xs font-semibold uppercase tracking-wider block">Total Work Packages (L3)</span>
+            <span class="text-3xl font-extrabold text-amber-400 font-headline mt-1 block">28 Paket</span>
+            <span class="text-[11px] text-slate-400">Paket kerja terverifikasi tuntas</span>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer Banner with Legend & Sign-off -->
+    <footer class="bg-gradient-to-r from-emerald-950 via-slate-950 to-emerald-950 text-white px-8 py-6 border-t border-emerald-900/60">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-emerald-600/30 border border-emerald-500/40 flex items-center justify-center text-emerald-400 text-sm">
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+          <div>
+            <h5 class="text-sm font-bold font-headline text-white">
+              Perencanaan Terstruktur untuk Pengembangan Sistem Informasi Pendaftaran KKN (SIM KKN)
+            </h5>
+            <p class="text-xs text-slate-400">
+              Dokumen Panduan Teknis Mata Kuliah MPTI • Program Studi S1 Informatika • LPPM 2026
+            </p>
+          </div>
+        </div>
+
+        <!-- Color Palette Verification Legend -->
+        <div class="flex items-center gap-3 text-xs bg-white/5 px-4 py-2 rounded-xl border border-white/10 flex-wrap justify-center">
+          <span class="text-slate-400 font-semibold mr-1">Palet Desain WBS:</span>
+          <span class="inline-flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#004532]"></span> Deep Emerald (#004532)</span>
+          <span class="inline-flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#10b981]"></span> Mint (#10b981)</span>
+          <span class="inline-flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#0284c7]"></span> Sky Blue (#0284c7)</span>
+          <span class="inline-flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-white border border-slate-300"></span> Pure White</span>
+        </div>
+
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

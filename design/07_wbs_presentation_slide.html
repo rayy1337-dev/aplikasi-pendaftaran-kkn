@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slide WBS - Sistem Informasi Pendaftaran KKN (SIM KKN)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: #F1F5F9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #0F172A;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .slide-canvas {
+      width: 1920px;
+      height: 1080px;
+      background: #FAFAFA;
+      box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15);
+      border-radius: 20px;
+      padding: 36px 48px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #E2E8F0;
+    }
+
+    /* Left Level Indicators Column */
+    .level-rail {
+      position: absolute;
+      left: 36px;
+      top: 130px;
+      bottom: 80px;
+      width: 90px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+    .level-pill {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      padding: 6px 12px;
+      border-radius: 8px;
+      text-transform: uppercase;
+      text-align: center;
+      width: 84px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    }
+    .pill-l0 { background: #004532; color: #FFFFFF; }
+    .pill-l1 { background: #EDE9FE; color: #5B21B6; border: 1px solid #DDD6FE; }
+    .pill-l2 { background: #E0F2FE; color: #0369A1; border: 1px solid #BAE6FD; }
+    .pill-l3 { background: #F1F5F9; color: #475569; border: 1px solid #CBD5E1; }
+
+    /* Main Board Container */
+    .board-content {
+      margin-left: 100px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+    }
+
+    /* Level 0 Header */
+    .l0-container {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      margin-bottom: 24px;
+    }
+    .l0-card {
+      background: #004532;
+      color: #FFFFFF;
+      padding: 16px 36px;
+      border-radius: 14px;
+      text-align: center;
+      box-shadow: 0 10px 15px -3px rgba(0, 69, 50, 0.2);
+      border: 2px solid #065F46;
+      max-width: 900px;
+      width: 100%;
+    }
+    .l0-card .tagline {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #A6F2D1;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .l0-card h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    /* 5 Main Columns Grid */
+    .tree-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      flex-grow: 1;
+      position: relative;
+      margin-top: 10px;
+      margin-bottom: 16px;
+    }
+
+    /* Column Styles */
+    .tree-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+    }
+
+    /* Level 1 Cards */
+    .l1-card {
+      padding: 12px 14px;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 13px;
+      font-family: 'Space Grotesk', sans-serif;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0,0,0,0.08);
+      position: relative;
+    }
+    .l1-c1 { background: #F3E8FF; color: #6B21A8; border-color: #D8B4FE; }
+    .l1-c2 { background: #ECFDF5; color: #065F46; border-color: #A7F3D0; }
+    .l1-c3 { background: #FFFBEB; color: #92400E; border-color: #FDE68A; }
+    .l1-c4 { background: #EFF6FF; color: #1E40AF; border-color: #BFDBFE; }
+    .l1-c5 { background: #F0FDFA; color: #0F766E; border-color: #99F6E4; }
+
+    /* Branch Container (L2 + L3) */
+    .branch-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 10px;
+      padding: 8px;
+      border: 1px dashed #CBD5E1;
+    }
+
+    /* Level 2 Sub-deliverables */
+    .l2-card {
+      background: #E0F2FE;
+      color: #0369A1;
+      border: 1px solid #BAE6FD;
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    /* Level 3 Work Packages */
+    .l3-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .l3-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      padding: 7px 9px;
+      border-radius: 6px;
+      font-size: 10px;
+      line-height: 1.35;
+      color: #1E293B;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+      border-left: 3px solid #94A3B8;
+      display: flex;
+      align-items: flex-start;
+      gap: 5px;
+    }
+    .l3-card .code {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 9.5px;
+      color: #004532;
+      flex-shrink: 0;
+    }
+    .l3-card .title {
+      font-weight: 600;
+    }
+
+    /* Footer Legend Bar */
+    .legend-bar {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: #475569;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+    }
+    .legend-items {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+    .legend-box {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+    }
+    .meta-tag {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #004532;
+      background: #ECFDF5;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid #A7F3D0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slide-canvas">
+    
+    <!-- Left Indicator Rail -->
+    <div class="level-rail">
+      <div class="level-pill pill-l0">LEVEL 0</div>
+      <div class="level-pill pill-l1">LEVEL 1</div>
+      <div class="level-pill pill-l2">LEVEL 2</div>
+      <div class="level-pill pill-l3">LEVEL 3</div>
+    </div>
+
+    <div class="board-content">
+      
+      <!-- Top Level 0 Banner -->
+      <div class="l0-container">
+        <div class="l0-card">
+          <div class="tagline">LEVEL 0 – PROYEK UTAMA MPTI KELOMPOK 2 (5ITA1)</div>
+          <h1>PENGEMBANGAN SISTEM INFORMASI PENDAFTARAN KULIAH KERJA NYATA (SIM KKN)</h1>
+        </div>
+      </div>
+
+      <!-- 5 Hierarchical Columns -->
+      <div class="tree-grid">
+        
+        <!-- COLUMN 1 -->
+        <div class="tree-col">
+          <div class="l1-card l1-c1">1. Analisis & Perencanaan</div>
+          
+          <div class="branch-group">
+            <div class="l2-card">1.1 Analisis Kebutuhan</div>
+            <div class="l3-list">
+              <div class="l3-card"><span class="code">1.1.1</span><span class="title">Identifikasi Kebutuhan LPPM & Mhs</span></div>
+              <div class="l3-card"><span class="code">1.1.2</span><span class="title">Penyusunan Spesifikasi SRS</span></div>
+            </div>
+          </div>
+
+          <div class="branch-group">
+            <div class="l2-card">1.2 Perencanaan Proyek</div>
+            <div class="l3-list">
+              <div class="l3-card"><span class="code">1.2.1</span><span class="title">Penyusunan Project Charter</span></div>
+              <div class="l3-card"><span class="code">1.2.2</span><span class="title">Penjadwalan CPM & Jalur Kritis</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUMN 2 -->
+        <div class="tree-col">
+          <div class="l1-card l1-c2">2. Desain Sistem & UI/UX</div>
+          
+          <div class="branch-group">
+            <div class="l2-card">2.1 Desain Antarmuka (UI/UX)</div>
+            <div class="l3-list">
+              <div class="l3-card"><span class="code">2.1.1</span><span class="title">Desain Landing Page & Portal</span></div>
+              <div class="l3-card"><span class="code">2.1.2</span><span class="title">Desain Wizard Pendaftaran</span></div>
+              <div class="l3-card"><span class="code">2.1.3</span><span class="title">Desain Konsol Admin LPPM</span></div>
+            </div>
+          </div>
+
+          <div class="branch-group">
+            <div class="l2-card">2.2 Desain Database & Arsitektur</div>
+            <div class="l3-list">
+              <div class="l3-card"><span class="code">2.2.1</span><span class="title">Skema ERD Basis Data MySQL</span></div>
+              <div class="l3-card"><span class="code">2.2.2</span><span class="title">Rancang Transaksi Kuota ACID</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUMN 3 -->
+        <div class="tree-col">
+          <div class="l1-card l1-c3">3. Pengembangan Fullstack</div>
+          
+          <div class="branch-group">
+            <div class="l2-card">3.1 Frontend React.js (Vite)</div>
+            <div class="l3-list">
+              <div class="l3-card"><span class="code">3.1.1</span><span class="title">Setup Vite, Tailwind & Routing</span></div>
+              <div class="l3-card"><span class="code">3.1.2</span><span class="title">Slicing Login & Register Mhs</span></div>
+              <div class="l3-card"><span class="code">3.1.3</span><span class="title">Wizard Pendaftaran 3 Tahap</span></div>
+              <div class="l3-card"><span class="code">3.1.4</span><span class="title">Dashboard Realtime Mahasiswa</span></div>
+              <div class="l3-card"><span class="code">3.1.5</span><span class="title">Konsol Verifikasi Pendaftar Admin</span></div>
+            </div>
+          </div>
+
+          <div class="branch-group">
+            <div class="l2-card">3.2 Backend REST API (Node.js)</div>
+            <div class="l3-list">
+              <div class="l3-card"><span class="code">3.2.1</span><span class="title">Setup Express.js & MySQL Pool</span></div>
+              <div class="l3-card"><span class="code">3.2.2</span><span class="title">Endpoint Auth JWT & Bcrypt</span></div>
+              <div class="l3-card"><span class="code">3.2.3</span><span class="title">Endpoint Kuota Desa Atomik</span></div>
+              <div class="l3-card"><span class="code">3.2.4</span><span class="title">Endpoint Upload Berkas Multer</span></div>
+              <div class="l3-card"><span class="code">3.2.5</span><span class="title">Endpoint Verifikasi Admin LPPM</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUMN 4 -->
+        <div class="tree-col">
+          <div class="l1-card l1-c4">4. Pengujian & Validasi QA</div>
+          
+          <div class="branch-group">
+            <div class="l2-card">4.1 Pengujian Fungsional</div>
+            <div class="l3-list">
+              <div class="l3-card"><span class="code">4.1.1</span><span class="title">Uji Blackbox Auth Mahasiswa/Admin</span></div>
+              <div class="l3-card"><span class="code">4.1.2</span><span class="title">Uji Validasi Kuota Transaksional</span></div>
+              <div class="l3-card"><span class="code">4.1.3</span><span class="title">Uji Upload Dokumen & Batas 5MB</span></div>
+            </div>
+          </div>
+
+          <div class="branch-group">
+            <div class="l2-card">4.2 Pengujian Integrasi E2E</div>
+            <div class="l3-list">
+              <div class="l3-card"><span class="code">4.2.1</span><span class="title">Validasi Alur Mahasiswa -> Admin</span></div>
+            </div>
+          </div>
+
+          <div class="branch-group">
+            <div class="l2-card">4.3 Perbaikan Sistem (Bug Fixing)</div>
+            <div class="l3-list">
+              <div class="l3-card"><span class="code">4.3.1</span><span class="title">Resolusi Konflik Port 5000 & CORS</span></div>
+              <div class="l3-card"><span class="code">4.3.2</span><span class="title">Perbaikan Scope Bug totalSks</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUMN 5 -->
+        <div class="tree-col">
+          <div class="l1-card l1-c5">5. Implementasi & Laporan</div>
+          
+          <div class="branch-group">
+            <div class="l2-card">5.1 Implementasi Sistem</div>
+            <div class="l3-list">
+              <div class="l3-card"><span class="code">5.1.1</span><span class="title">Konsolidasi Monorepo Staging</span></div>
+              <div class="l3-card"><span class="code">5.1.2</span><span class="title">Skrip Database Seeder Otomatis</span></div>
+            </div>
+          </div>
+
+          <div class="branch-group">
+            <div class="l2-card">5.2 Dokumentasi & Pelaporan</div>
+            <div class="l3-list">
+              <div class="l3-card"><span class="code">5.2.1</span><span class="title">Postman API Collection v2.1</span></div>
+              <div class="l3-card"><span class="code">5.2.2</span><span class="title">Makalah UTS MPTI & Slide Demo</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Legend Bar -->
+      <div class="legend-bar">
+        <div class="legend-items">
+          <span style="font-weight: 700; color: #0F172A; margin-right: 8px;">LEGENDA TINGKATAN WBS:</span>
+          <div class="legend-item"><div class="legend-box" style="background: #004532;"></div><span>Level 0 = Proyek Utama</span></div>
+          <div class="legend-item"><div class="legend-box" style="background: #EDE9FE; border: 1px solid #DDD6FE;"></div><span>Level 1 = Deliverables Utama</span></div>
+          <div class="legend-item"><div class="legend-box" style="background: #E0F2FE; border: 1px solid #BAE6FD;"></div><span>Level 2 = Subdeliverables</span></div>
+          <div class="legend-item"><div class="legend-box" style="background: #FFFFFF; border: 1px solid #CBD5E1;"></div><span>Level 3 = Rincian Pekerjaan (Work Packages)</span></div>
+        </div>
+        <div class="meta-tag">
+          Tugas MPTI S1 Informatika • Kelompok 2 (Rayhan, Virdi, Ricko, Feris)
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
