@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entity Relationship Diagram (ERD) - SIM KKN LPPM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0B1320;
+      color: #E2E8F0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      padding: 40px 24px;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .badge {
+      display: inline-block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: #065F46;
+      color: #A6F2D1;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      margin-bottom: 12px;
+      border: 1px solid #10B981;
+    }
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    p.subtitle {
+      color: #94A3B8;
+      font-size: 15px;
+    }
+
+    /* ERD Grid Layout */
+    .erd-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+
+    /* Table Card */
+    .table-card {
+      background: #131E30;
+      border: 1px solid #233550;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .table-card:hover {
+      transform: translateY(-3px);
+      border-color: #10B981;
+    }
+    .table-header {
+      background: #004532;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #065F46;
+    }
+    .table-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .table-type {
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(255, 255, 255, 0.15);
+      color: #A6F2D1;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    /* Column Rows */
+    .column-list {
+      list-style: none;
+    }
+    .column-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      border-bottom: 1px solid #1C2B42;
+      font-size: 13px;
+    }
+    .column-row:last-child {
+      border-bottom: none;
+    }
+    .column-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .col-key {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 5px;
+      border-radius: 4px;
+      width: 32px;
+      text-align: center;
+    }
+    .key-pk { background: #D97706; color: #FFFFFF; }
+    .key-fk { background: #2563EB; color: #FFFFFF; }
+    .key-uk { background: #059669; color: #FFFFFF; }
+    .key-none { visibility: hidden; }
+
+    .col-name {
+      font-weight: 600;
+      color: #F8FAFC;
+    }
+    .col-type {
+      font-family: 'JetBrains Mono', monospace;
+      color: #94A3B8;
+      font-size: 12px;
+    }
+
+    /* Relationship Summary Box */
+    .relation-box {
+      background: #131E30;
+      border: 1px solid #233550;
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 40px;
+    }
+    .relation-box h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .rel-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 16px;
+    }
+    .rel-item {
+      background: #0B1320;
+      border: 1px solid #1E2D44;
+      padding: 12px 16px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+    }
+    .rel-cardinality {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      color: #10B981;
+      background: rgba(16, 185, 129, 0.1);
+      padding: 4px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #64748B;
+      font-size: 13px;
+      border-top: 1px solid #1C2B42;
+      padding-top: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="badge">Relational Database Model • MySQL / InnoDB</div>
+      <h1>Entity Relationship Diagram (ERD)</h1>
+      <p class="subtitle">Sistem Informasi Pendaftaran Kuliah Kerja Nyata (SIM KKN) • Database: <code>kkn_db</code></p>
+    </header>
+
+    <div class="erd-grid">
+      
+      <!-- Table 1: users -->
+      <div class="table-card">
+        <div class="table-header">
+          <div class="table-title"><span>👤</span> users</div>
+          <div class="table-type">Table • Auth Engine</div>
+        </div>
+        <ul class="column-list">
+          <li class="column-row"><div class="column-left"><span class="col-key key-pk">PK</span><span class="col-name">id</span></div><span class="col-type">BIGINT UNSIGNED</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-uk">UK</span><span class="col-name">nim</span></div><span class="col-type">VARCHAR(32) NULL</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-uk">UK</span><span class="col-name">email</span></div><span class="col-type">VARCHAR(254) NULL</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-none">-</span><span class="col-name">password_hash</span></div><span class="col-type">VARCHAR(255)</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-none">-</span><span class="col-name">role</span></div><span class="col-type">ENUM('mahasiswa','admin')</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-none">-</span><span class="col-name">created_at</span></div><span class="col-type">TIMESTAMP</span></li>
+        </ul>
+      </div>
+
+      <!-- Table 2: mahasiswa_profiles -->
+      <div class="table-card">
+        <div class="table-header">
+          <div class="table-title"><span>🎓</span> mahasiswa_profiles</div>
+          <div class="table-type">Table • Master Profile</div>
+        </div>
+        <ul class="column-list">
+          <li class="column-row"><div class="column-left"><span class="col-key key-pk">PK</span><span class="col-name">id</span></div><span class="col-type">BIGINT UNSIGNED</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-fk">FK</span><span class="col-name">user_id</span></div><span class="col-type">BIGINT UNSIGNED (UK)</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-uk">UK</span><span class="col-name">nim</span></div><span class="col-type">VARCHAR(32)</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-none">-</span><span class="col-name">nama_lengkap</span></div><span class="col-type">VARCHAR(150)</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-none">-</span><span class="col-name">program_studi</span></div><span class="col-type">VARCHAR(150)</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-none">-</span><span class="col-name">fakultas</span></div><span class="col-type">VARCHAR(150)</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-none">-</span><span class="col-name">no_hp</span></div><span class="col-type">VARCHAR(32)</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-none">-</span><span class="col-name">jenis_kelamin</span></div><span class="col-type">ENUM('L','P')</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-none">-</span><span class="col-name">total_sks</span></div><span class="col-type">INT UNSIGNED</span></li>
+        </ul>
+      </div>
+
+      <!-- Table 3: locations -->
+      <div class="table-card">
+        <div class="table-header">
+          <div class="table-title"><span>📍</span> locations</div>
+          <div class="table-type">Table • Master Wilayah</div>
+        </div>
+        <ul class="column-list">
+          <li class="column-row"><div class="column-left"><span class="col-key key-pk">PK</span><span class="col-name">id</span></div><span class="col-type">BIGINT UNSIGNED</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-none">-</span><span class="col-name">nama_desa_wilayah</span></div><span class="col-type">VARCHAR(150)</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-none">-</span><span class="col-name">kecamatan</span></div><span class="col-type">VARCHAR(150)</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-none">-</span><span class="col-name">kabupaten</span></div><span class="col-type">VARCHAR(150)</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-none">-</span><span class="col-name">kuota_maksimal</span></div><span class="col-type">INT UNSIGNED</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-none">-</span><span class="col-name">kuota_terisi</span></div><span class="col-type">INT UNSIGNED (Default 0)</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-none">-</span><span class="col-name">periode_kkn</span></div><span class="col-type">VARCHAR(100)</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-none">-</span><span class="col-name">status_aktif</span></div><span class="col-type">BOOLEAN (Default TRUE)</span></li>
+        </ul>
+      </div>
+
+      <!-- Table 4: registrations -->
+      <div class="table-card">
+        <div class="table-header">
+          <div class="table-title"><span>📝</span> registrations</div>
+          <div class="table-type">Table • Core Transaction</div>
+        </div>
+        <ul class="column-list">
+          <li class="column-row"><div class="column-left"><span class="col-key key-pk">PK</span><span class="col-name">id</span></div><span class="col-type">BIGINT UNSIGNED</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-fk">FK</span><span class="col-name">mahasiswa_id</span></div><span class="col-type">BIGINT UNSIGNED</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-fk">FK</span><span class="col-name">location_id</span></div><span class="col-type">BIGINT UNSIGNED</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-none">-</span><span class="col-name">status</span></div><span class="col-type">ENUM('pending','verified','revision','approved','rejected')</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-none">-</span><span class="col-name">catatan_admin</span></div><span class="col-type">TEXT NULL</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-none">-</span><span class="col-name">tanggal_daftar</span></div><span class="col-type">TIMESTAMP</span></li>
+        </ul>
+      </div>
+
+      <!-- Table 5: registration_files -->
+      <div class="table-card">
+        <div class="table-header">
+          <div class="table-title"><span>📎</span> registration_files</div>
+          <div class="table-type">Table • Document Attachments</div>
+        </div>
+        <ul class="column-list">
+          <li class="column-row"><div class="column-left"><span class="col-key key-pk">PK</span><span class="col-name">id</span></div><span class="col-type">BIGINT UNSIGNED</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-fk">FK</span><span class="col-name">registration_id</span></div><span class="col-type">BIGINT UNSIGNED</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-none">-</span><span class="col-name">jenis_berkas</span></div><span class="col-type">ENUM('ktm','khs','surat_sehat','surat_izin')</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-none">-</span><span class="col-name">file_url</span></div><span class="col-type">VARCHAR(500)</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-none">-</span><span class="col-name">uploaded_at</span></div><span class="col-type">TIMESTAMP</span></li>
+        </ul>
+      </div>
+
+      <!-- Table 6: announcements -->
+      <div class="table-card">
+        <div class="table-header">
+          <div class="table-title"><span>📢</span> announcements</div>
+          <div class="table-type">Table • Public Notices</div>
+        </div>
+        <ul class="column-list">
+          <li class="column-row"><div class="column-left"><span class="col-key key-pk">PK</span><span class="col-name">id</span></div><span class="col-type">BIGINT UNSIGNED</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-none">-</span><span class="col-name">judul</span></div><span class="col-type">VARCHAR(200)</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-none">-</span><span class="col-name">konten</span></div><span class="col-type">TEXT</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-none">-</span><span class="col-name">lampiran_pdf_url</span></div><span class="col-type">VARCHAR(500) NULL</span></li>
+          <li class="column-row"><div class="column-left"><span class="col-key key-none">-</span><span class="col-name">tanggal_rilis</span></div><span class="col-type">TIMESTAMP</span></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Relationships Reference -->
+    <div class="relation-box">
+      <h3>🔗 Kardinalitas & Relasi Antartabel (Foreign Keys)</h3>
+      <div class="rel-list">
+        <div class="rel-item">
+          <span class="rel-cardinality">1 : 1</span>
+          <div><code>users.id</code> ➔ <code>mahasiswa_profiles.user_id</code><br><small style="color:#94A3B8;">Satu akun pengguna memiliki tepat satu data profil mahasiswa (ON DELETE CASCADE).</small></div>
+        </div>
+        <div class="rel-item">
+          <span class="rel-cardinality">1 : N</span>
+          <div><code>mahasiswa_profiles.id</code> ➔ <code>registrations.mahasiswa_id</code><br><small style="color:#94A3B8;">Satu mahasiswa dapat memiliki riwayat registrasi KKN pada periode berjalan.</small></div>
+        </div>
+        <div class="rel-item">
+          <span class="rel-cardinality">1 : N</span>
+          <div><code>locations.id</code> ➔ <code>registrations.location_id</code><br><small style="color:#94A3B8;">Satu lokasi desa menerima banyak pendaftaran mahasiswa (dibatasi kuota).</small></div>
+        </div>
+        <div class="rel-item">
+          <span class="rel-cardinality">1 : N</span>
+          <div><code>registrations.id</code> ➔ <code>registration_files.registration_id</code><br><small style="color:#94A3B8;">Satu formulir pendaftaran memiliki banyak lampiran berkas fisik/digital (ON DELETE CASCADE).</small></div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      Sistem Informasi Pendaftaran KKN (SIM KKN) • Kelompok 2 (Rayhan, Virdi, Ricko, Feris) • S1 Informatika 5ITA1
+    </footer>
+  </div>
+
+</body>
+</html>
