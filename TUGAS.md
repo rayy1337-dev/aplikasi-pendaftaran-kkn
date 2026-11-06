@@ -127,24 +127,24 @@ Gunakan database relasional (PostgreSQL atau MySQL) atau Supabase. Buat skema ta
 ## Checklist Progres Mingguan
 
 ### Minggu 1: Setup Lingkungan & Database
-- [ ] Menentukan framework backend (Node.js/Express, NestJS, atau Laravel).
-- [ ] Menyiapkan database PostgreSQL / MySQL dan membuat migrasi skema tabel.
-- [ ] Menguji koneksi database dan skema relasi foreign key.
+- [x] Menentukan framework backend (Node.js/Express, NestJS, atau Laravel).
+- [x] Menyiapkan database PostgreSQL / MySQL dan membuat migrasi skema tabel.
+- [x] Menguji koneksi database dan skema relasi foreign key.
 
 ### Minggu 2: Modul Auth & Data Master Lokasi
-- [ ] Implementasi registrasi mahasiswa & hashing password (Bcrypt).
-- [ ] Implementasi login dan pembuatan token JWT.
-- [ ] Middleware proteksi rute & otorisasi role (Mahasiswa vs Admin).
-- [ ] CRUD API data master lokasi KKN.
-- [ ] Membagikan dokumentasi Postman tahap awal ke Feris.
+- [x] Implementasi registrasi mahasiswa & hashing password (Bcrypt).
+- [x] Implementasi login dan pembuatan token JWT.
+- [x] Middleware proteksi rute & otorisasi role (Mahasiswa vs Admin).
+- [x] CRUD API data master lokasi KKN.
+- [x] Membagikan dokumentasi Postman tahap awal ke Feris.
 
 ### Minggu 3: Modul Pendaftaran, Kuota, & Upload Berkas
-- [ ] Implementasi endpoint pendaftaran dengan validasi transaksi kuota lokasi.
-- [ ] Implementasi endpoint upload berkas (Multer / Supabase Storage).
-- [ ] Implementasi API dashboard admin verifikasi pendaftar.
+- [x] Implementasi endpoint pendaftaran dengan validasi transaksi kuota lokasi.
+- [x] Implementasi endpoint upload berkas (Multer / Supabase Storage).
+- [x] Implementasi API dashboard admin verifikasi pendaftar.
 - [ ] Mendukung pengujian integrasi bersama Feris (Frontend).
 
 ### Minggu 4: Integrasi Penuh, Keamanan, & Dokumentasi Laporan
-- [ ] Menuntaskan endpoint pengumuman hasil penempatan.
-- [ ] Melakukan pengecekan keamanan (SQL Injection protection, input validation, CORS).
+- [x] Menuntaskan endpoint pengumuman hasil penempatan.
+- [x] Melakukan pengecekan keamanan (SQL Injection protection, input validation, CORS).
 - [ ] Membantu Rayhan (PM) melengkapi diagram ERD dan daftar endpoint untuk Bab 3 Laporan Proyek.

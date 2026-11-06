@@ -46,14 +46,24 @@ di folder proyek dengan konfigurasi MySQL berikut:
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=
-DB_NAME=pendaftaran_kkn
+DB_NAME=db_pendaftaran_kkn
 DB_PORT=3306
 PORT=5000
 JWT_SECRET=ganti-dengan-secret-acak-minimal-32-karakter
 CORS_ORIGINS=http://localhost:5173,http://127.0.0.1:5173
 ```
 
-Pastikan MySQL aktif dan database `pendaftaran_kkn` sudah dibuat. Server tetap
+Skema database awal tersedia di [db.sql](db.sql). Impor file tersebut melalui
+phpMyAdmin atau MySQL sebelum menjalankan API. File ini membuat database
+`db_pendaftaran_kkn` dan tabel-tabel yang diperlukan; gunakan pada database
+baru/kosong karena `CREATE TABLE IF NOT EXISTS` tidak mengubah struktur tabel
+lama.
+
+Dokumentasi interaktif Swagger UI tersedia di
+`http://localhost:5000/api-docs` setelah server dijalankan. Buka URL tersebut
+di browser untuk melihat dan mencoba endpoint API.
+
+Pastikan MySQL aktif dan database `db_pendaftaran_kkn` sudah tersedia. Server tetap
 dapat dijalankan tanpa koneksi database, tetapi fitur yang memerlukan database
 tidak akan berfungsi. Tabel API dibuat otomatis saat endpoint pertama kali
 dipanggil. Jangan gunakan nilai `JWT_SECRET` contoh pada deployment.
