@@ -45,6 +45,20 @@ export default function PendaftaranWizardPage() {
   const [submitError, setSubmitError] = useState('');
   const [submittedData, setSubmittedData] = useState(null);
   const [showBuktiModal, setShowBuktiModal] = useState(false);
+  const [existingReg, setExistingReg] = useState(null);
+
+  // Check if student already submitted registration
+  useEffect(() => {
+    async function checkExisting() {
+      if (user?.nim || user?.email) {
+        const res = await pendaftaranService.getByStudent(user.nim || user.email);
+        if (res.data) {
+          setExistingReg(res.data);
+        }
+      }
+    }
+    checkExisting();
+  }, [user]);
 
   // Load locations on mount
   useEffect(() => {
@@ -226,6 +240,35 @@ export default function PendaftaranWizardPage() {
         }}>
           <ShieldCheck size={16} />
           <span>{backendNotice}</span>
+        </div>
+      )}
+
+      {/* Existing Registration Warning Safeguard */}
+      {existingReg && (
+        <div style={{
+          background: '#fffbeb',
+          border: '1px solid #fde68a',
+          borderRadius: '12px',
+          padding: '1.25rem 1.5rem',
+          marginBottom: '1.5rem',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: '1rem'
+        }}>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#b45309', fontWeight: 700, fontSize: '0.9rem' }}>
+              <AlertCircle size={18} />
+              <span>Pendaftaran Anda Sudah Terdata di Sistem</span>
+            </div>
+            <p style={{ color: '#78350f', fontSize: '0.85rem', marginTop: '4px' }}>
+              Nomor Registrasi: <strong>{existingReg.registrationNumber}</strong> • Status: <strong>{existingReg.status}</strong> ({existingReg.desa}). Anda dapat memantau status atau mencetak bukti pendaftaran di Dashboard.
+            </p>
+          </div>
+          <Link to="/mahasiswa/dashboard" className="btn btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}>
+            Buka Status di Dashboard
+          </Link>
         </div>
       )}
 

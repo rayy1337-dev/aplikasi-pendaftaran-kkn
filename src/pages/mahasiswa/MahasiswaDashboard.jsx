@@ -15,10 +15,16 @@ import {
   Award,
   Users,
   Eye,
-  Trash2
+  Trash2,
+  Bell,
+  Calendar,
+  Sparkles,
+  Phone,
+  ShieldCheck
 } from 'lucide-react';
 import { useAuth } from '../../context/useAuth';
 import { pendaftaranService } from '../../services/pendaftaranService';
+import { announcementService } from '../../services/announcementService';
 import BuktiPendaftaranModal from '../../components/pendaftaran/BuktiPendaftaranModal';
 import RevisiBerkasModal from '../../components/mahasiswa/RevisiBerkasModal';
 
@@ -27,6 +33,8 @@ export default function MahasiswaDashboard() {
   const navigate = useNavigate();
 
   const [registration, setRegistration] = useState(null);
+  const [announcements, setAnnouncements] = useState([]);
+  const [peers, setPeers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [showBuktiModal, setShowBuktiModal] = useState(false);
   const [showRevisiModal, setShowRevisiModal] = useState(false);
@@ -35,19 +43,36 @@ export default function MahasiswaDashboard() {
   const studentName = user?.name || 'Feris Pratama';
   const studentNim = user?.nim || '220101001';
 
-  const fetchStudentRegistration = async () => {
+  const loadData = async () => {
     setIsLoading(true);
-    const res = await pendaftaranService.getByStudent(studentNim);
-    if (res.data) {
-      setRegistration(res.data);
+    const [regRes, annRes, allApplicantsRes] = await Promise.all([
+      pendaftaranService.getByStudent(studentNim),
+      announcementService.getAll(),
+      pendaftaranService.getAll(),
+    ]);
+
+    if (regRes.data) {
+      setRegistration(regRes.data);
+      // If student is accepted, find peer members in the same village
+      if (regRes.data.desa && allApplicantsRes.data) {
+        const villagePeers = allApplicantsRes.data.filter(
+          (a) => a.desa === regRes.data.desa && a.nim !== studentNim && (a.status === 'Diterima' || a.status === 'Diverifikasi')
+        );
+        setPeers(villagePeers);
+      }
     } else {
       setRegistration(null);
     }
+
+    if (annRes.data) {
+      setAnnouncements(annRes.data);
+    }
+
     setIsLoading(false);
   };
 
   useEffect(() => {
-    fetchStudentRegistration();
+    loadData();
   }, [studentNim]);
 
   const handleLogout = () => {
@@ -59,7 +84,7 @@ export default function MahasiswaDashboard() {
     const res = await pendaftaranService.revisiUpload(id, updatedBerkas, catatan);
     if (res.data) {
       setRegistration(res.data);
-      setStatusMessage('Berkas revisi berhasil diunggah dan status kembali ke Menunggu Verifikasi.');
+      setStatusMessage('Berkas revisi berhasil diunggah. Status kembali ke Menunggu Verifikasi.');
     }
   };
 
@@ -87,7 +112,7 @@ export default function MahasiswaDashboard() {
   };
 
   return (
-    <div className="container" style={{ padding: '3rem 1.5rem' }}>
+    <div className="container" style={{ padding: '3rem 1.5rem', maxWidth: '1100px' }}>
       {/* Notice Banner */}
       {backendNotice && (
         <div style={{
@@ -138,6 +163,10 @@ export default function MahasiswaDashboard() {
         </div>
 
         <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+          <button onClick={loadData} className="btn btn-secondary" title="Segarkan Data">
+            <RefreshCw size={15} />
+            <span>Segarkan</span>
+          </button>
           <Link to="/" className="btn btn-secondary">
             <Home size={16} />
             <span>Halaman Utama</span>
@@ -180,7 +209,7 @@ export default function MahasiswaDashboard() {
           </div>
 
           {/* Quick Guide Cards */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '2.5rem' }}>
             <div className="card" style={{ padding: '1.75rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1rem' }}>
                 <div style={{ padding: '10px', background: '#eff6ff', borderRadius: '10px', color: '#2563eb' }}>
@@ -299,8 +328,79 @@ export default function MahasiswaDashboard() {
             );
           })()}
 
+          {/* DITERIMA: SPECIAL PLACEMENT & GROUP ANNOUNCEMENT CARD */}
+          {registration.status === 'Diterima' && (
+            <div className="card" style={{ padding: '2rem', marginBottom: '2rem', border: '1px solid #a7f3d0', background: 'linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#059669', marginBottom: '1rem' }}>
+                <Sparkles size={22} />
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#065f46' }}>
+                  Pengumuman Penempatan & Kelompok KKN Resmi
+                </h3>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.25rem', marginBottom: '1.5rem' }}>
+                <div style={{ padding: '1rem', background: '#ffffff', borderRadius: '10px', border: '1px solid #bbf7d0' }}>
+                  <span style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: 600 }}>Penetapan Kelompok:</span>
+                  <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#065f46' }}>
+                    {registration.kelompok || 'Kelompok KKN-02'}
+                  </div>
+                  <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '2px' }}>
+                    Wilayah: {registration.desa}, {registration.kecamatan}
+                  </p>
+                </div>
+
+                <div style={{ padding: '1rem', background: '#ffffff', borderRadius: '10px', border: '1px solid #bbf7d0' }}>
+                  <span style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: 600 }}>Dosen Pembimbing Lapangan (DPL):</span>
+                  <div style={{ fontSize: '1rem', fontWeight: 800, color: '#1e293b' }}>
+                    {registration.dpl || 'Dr. H. Mulyadi, M.Si.'}
+                  </div>
+                  <p style={{ fontSize: '0.8rem', color: '#059669', marginTop: '2px', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    <Phone size={13} /> Kontak LPPM: (021) 789-0123 ext. 44
+                  </p>
+                </div>
+
+                <div style={{ padding: '1rem', background: '#ffffff', borderRadius: '10px', border: '1px solid #bbf7d0' }}>
+                  <span style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: 600 }}>Jadwal Keberangkatan & Posko:</span>
+                  <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#1e293b' }}>
+                    Pelepasan: 01 Desember 2026
+                  </div>
+                  <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '2px' }}>
+                    Lokasi: Lapangan Rektorat Utama Kampus
+                  </p>
+                </div>
+              </div>
+
+              {/* Peer Group Members */}
+              {peers.length > 0 && (
+                <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid #d1fae5' }}>
+                  <h4 style={{ fontSize: '0.9rem', fontWeight: 700, color: '#065f46', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <Users size={16} /> Anggota Mahasiswa Lain di Lokasi yang Sama ({peers.length} Mahasiswa):
+                  </h4>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                    {peers.map((p) => (
+                      <span
+                        key={p.nim}
+                        style={{
+                          background: '#ffffff',
+                          border: '1px solid #a7f3d0',
+                          padding: '0.35rem 0.75rem',
+                          borderRadius: '8px',
+                          fontSize: '0.8rem',
+                          color: '#1e293b',
+                          fontWeight: 500,
+                        }}
+                      >
+                        <strong>{p.name}</strong> ({p.prodi})
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
           {/* Details Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem', marginBottom: '2.5rem' }}>
             {/* Lokasi Card */}
             <div className="card" style={{ padding: '1.75rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1.25rem', color: '#2563eb' }}>
@@ -378,6 +478,47 @@ export default function MahasiswaDashboard() {
           </div>
         </div>
       )}
+
+      {/* Announcements Section */}
+      <div className="card" style={{ padding: '1.75rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1.25rem', color: '#2563eb' }}>
+          <Bell size={20} />
+          <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a' }}>
+            Pengumuman & Informasi Terbaru LPPM
+          </h3>
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          {announcements.slice(0, 3).map((item) => (
+            <div
+              key={item.id}
+              style={{
+                padding: '1rem 1.25rem',
+                borderRadius: '10px',
+                border: '1px solid #e2e8f0',
+                background: '#f8fafc'
+              }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.35rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+                <span className={`badge ${
+                  item.category === 'Penting' ? 'badge-warning' : 'badge-primary'
+                }`} style={{ fontSize: '0.7rem' }}>
+                  {item.category}
+                </span>
+                <span style={{ fontSize: '0.75rem', color: '#64748b', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  <Calendar size={12} /> {item.date}
+                </span>
+              </div>
+              <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#0f172a' }}>
+                {item.title}
+              </h4>
+              <p style={{ fontSize: '0.825rem', color: '#475569', marginTop: '4px', lineHeight: 1.5 }}>
+                {item.content}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* Proof Modal */}
       {showBuktiModal && registration && (

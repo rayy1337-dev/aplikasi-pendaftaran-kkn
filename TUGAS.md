@@ -100,7 +100,7 @@ Sebagai Frontend Developer, Anda bertanggung jawab membangun antarmuka pengguna 
 - [x] Integrasi upload berkas dan form pendaftaran ke backend Ricko.
 
 ### Minggu 4: Integrasi End-to-End, Testing, & Poles UI
-- [ ] Menyelesaikan integrasi seluruh endpoint (Admin verifikasi, pengumuman penempatan).
-- [ ] Menguji responsivitas di layar ponsel dan laptop.
-- [ ] Memperbaiki bug yang dilaporkan oleh Rayhan (PM).
-- [ ] Menyiapkan build produksi (`npm run build`) dan demo aplikasi untuk presentasi.
+- [x] Menyelesaikan integrasi seluruh endpoint (Admin verifikasi, pengumuman penempatan).
+- [x] Menguji responsivitas di layar ponsel dan laptop.
+- [x] Memperbaiki bug yang dilaporkan oleh Rayhan (PM).
+- [x] Menyiapkan build produksi (`npm run build`) dan demo aplikasi untuk presentasi.

@@ -369,3 +369,46 @@ button, input, select, textarea {
     transform: translateY(0);
   }
 }
+
+/* Print Stylesheet for Bukti Registrasi KKN */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  #printable-kkn-receipt,
+  #printable-kkn-receipt * {
+    visibility: visible;
+  }
+
+  #printable-kkn-receipt {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 24px;
+    border: 2px solid #1e293b !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    box-shadow: none !important;
+    z-index: 99999;
+  }
+
+  header, footer, .app-navbar, .app-footer, button, .btn {
+    display: none !important;
+  }
+}
+
+/* Mobile & Tablet Responsiveness Enhancements */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
