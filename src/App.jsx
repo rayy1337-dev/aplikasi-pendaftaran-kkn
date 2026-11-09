@@ -9,6 +9,7 @@ import FAQPage from './pages/public/FAQPage';
 import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/RegisterPage';
 import MahasiswaDashboard from './pages/mahasiswa/MahasiswaDashboard';
+import PendaftaranWizardPage from './pages/mahasiswa/PendaftaranWizardPage';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -32,6 +33,7 @@ export default function App() {
           {/* Mahasiswa Protected Routes */}
           <Route element={<ProtectedRoute allowedRole="mahasiswa" />}>
             <Route path="/mahasiswa/dashboard" element={<MahasiswaDashboard />} />
+            <Route path="/mahasiswa/daftar" element={<PendaftaranWizardPage />} />
           </Route>
 
           {/* Admin Protected Routes */}

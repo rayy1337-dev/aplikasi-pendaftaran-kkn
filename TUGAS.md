@@ -93,11 +93,11 @@ Sebagai Frontend Developer, Anda bertanggung jawab membangun antarmuka pengguna 
 - [x] Uji coba login/register ke endpoint backend Ricko.
 
 ### Minggu 3: Formulir Pendaftaran & Dashboard Admin
-- [ ] Membangun form wizard multi-step pendaftaran mahasiswa.
-- [ ] Implementasi komponen katalog pemilihan lokasi dan visualisasi sisa kuota.
-- [ ] Membangun form upload berkas dengan validasi client-side.
-- [ ] Membangun antarmuka dashboard admin dan tabel verifikasi pendaftar.
-- [ ] Integrasi upload berkas dan form pendaftaran ke backend Ricko.
+- [x] Membangun form wizard multi-step pendaftaran mahasiswa.
+- [x] Implementasi komponen katalog pemilihan lokasi dan visualisasi sisa kuota.
+- [x] Membangun form upload berkas dengan validasi client-side.
+- [x] Membangun antarmuka dashboard admin dan tabel verifikasi pendaftar.
+- [x] Integrasi upload berkas dan form pendaftaran ke backend Ricko.
 
 ### Minggu 4: Integrasi End-to-End, Testing, & Poles UI
 - [ ] Menyelesaikan integrasi seluruh endpoint (Admin verifikasi, pengumuman penempatan).
